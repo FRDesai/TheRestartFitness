@@ -21,7 +21,7 @@
   --color-light: #404040;
   --color-dark: #090909;
   --color-darker: #404040;
-  --color-card: #58595B;
+  --color-card: #313131;
   --color-card-hover: #6a6b6d;
 }
 
@@ -30,11 +30,15 @@ body {
   color: var(--color-neutral-700);
 }
 
-.animate-zoom-slow {
-  animation: zoomSlow 20s ease-in-out infinite alternate, fadeIn 2s ease-in;
+@keyframes zoomSlow {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.5);
+  }
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.animate-zoom-slow {
+  animation: zoomSlow 20s ease-in-out infinite alternate;
 }
