@@ -39,6 +39,19 @@ body {
   }
 }
 
+@keyframes spinSlow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .animate-zoom-slow {
   animation: zoomSlow 20s ease-in-out infinite alternate;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 8s linear infinite;
 }
