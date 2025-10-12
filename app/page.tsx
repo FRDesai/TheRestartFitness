@@ -6,9 +6,14 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-[var(--color-darker)] to-[var(--color-dark)]">
       {/* Hero Section */}
       <section
-  className="relative py-20 px-4 sm:px-6 lg:px-8 bg-cover bg-center bg-no-repeat"
-  style={{ backgroundImage: 'url(/images/AlMoukhool/DSC08925.JPG)' }}
+  className="relative py-20 px-4 sm:px-6 lg:px-8 bg-cover bg-center bg-no-repeat overflow-hidden"
 >
+  {/* Animated Background */}
+  <div
+    className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110 animate-zoom-slow"
+    style={{ backgroundImage: 'url(/images/AlMoukhool/DSC08925.JPG)' }}
+  ></div>
+
   {/* Thin Black Overlay */}
   <div className="absolute inset-0 bg-black/60"></div>
 
@@ -20,7 +25,8 @@ export default function Home() {
     </h1>
 
     <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
-      Professional training, personalized programs, and a supportive community to help you achieve your fitness goals and transform your life.
+      Professional training, personalized programs, and a supportive community
+      to help you achieve your fitness goals and transform your life.
     </p>
 
     <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -39,6 +45,7 @@ export default function Home() {
     </div>
   </div>
 </section>
+
 
 
       {/* Features Section */}

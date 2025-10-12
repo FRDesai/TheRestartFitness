@@ -29,3 +29,12 @@ body {
   background-color: var(--color-light);
   color: var(--color-neutral-700);
 }
+
+.animate-zoom-slow {
+  animation: zoomSlow 20s ease-in-out infinite alternate, fadeIn 2s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

@@ -8,17 +8,17 @@ export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { name: 'About Us', href: '/about' },
+    // { name: 'About Us', href: '/about' },
     { name: 'Services & Programs', href: '/services' },
     { name: 'Locations', href: '/locations' },
-    { name: 'Trainer Profile', href: '/trainers' },
+    // { name: 'Trainer Profile', href: '/trainers' },
     { name: 'Transformations & Testimonials', href: '/transformations' },
     { name: 'Career', href: '/career' },
     { name: 'Franchise', href: '/franchise' },
   ];
 
   useEffect(() => {
-    function onKey(e) {
+    function onKey(e: KeyboardEvent) {
       if (e.key === 'Escape') setIsMenuOpen(false);
     }
     document.addEventListener('keydown', onKey);
