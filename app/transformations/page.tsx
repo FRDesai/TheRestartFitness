@@ -84,7 +84,7 @@ export default function Transformations() {
   ];
 
   return (
-    <div className="min-h-screen bg-[var(--color-darker)]">
+    <div className="min-h-screen bg-[var(--color-light)]">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
@@ -100,7 +100,7 @@ export default function Transformations() {
       {/* Transformations Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+          <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
             Amazing Transformations
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -164,14 +164,14 @@ export default function Transformations() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+          <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
             What Our Clients Say
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
+              <div key={index} className="bg-white rounded-lg p-6 hover:shadow-lg transition-shadow duration-300 border border-gray-200">
                 <div className="flex items-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <svg key={i} className="w-5 h-5 text-[var(--color-primary)]" fill="currentColor" viewBox="0 0 20 20">
@@ -222,7 +222,7 @@ export default function Transformations() {
       {/* CTA Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">
             Ready to Start Your Transformation?
           </h2>
           <p className="text-xl text-gray-600 mb-8">

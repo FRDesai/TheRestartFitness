@@ -158,7 +158,7 @@ export default function Career() {
   ];
 
   return (
-    <div className="min-h-screen bg-[var(--color-darker)]">
+    <div className="min-h-screen bg-[var(--color-light)]">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
@@ -174,7 +174,7 @@ export default function Career() {
       {/* Open Positions */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+          <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
             Current Openings
           </h2>
           <div className="space-y-8">
@@ -251,9 +251,9 @@ export default function Career() {
       </section>
 
       {/* Why Work With Us */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+          <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
             Why Work With Us?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -307,7 +307,7 @@ export default function Career() {
       {/* CTA Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">
             Ready to Join Our Team?
           </h2>
           <p className="text-xl text-gray-600 mb-8">

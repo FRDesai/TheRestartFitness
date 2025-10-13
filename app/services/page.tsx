@@ -41,7 +41,7 @@ export default function Services() {
   ];
 
   return (
-    <div className="min-h-screen bg-[var(--color-darker)]">
+    <div className="min-h-screen bg-[var(--color-light)]">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
@@ -55,17 +55,17 @@ export default function Services() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[var(--color-card)]">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <div key={index} className="bg-[var(--color-dark)] rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-                <h3 className="text-2xl font-bold text-white mb-4">{service.title}</h3>
-                <p className="text-gray-300 mb-6">{service.description}</p>
+              <div key={index} className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 border border-gray-200">
+                <h3 className="text-2xl font-bold text-gray-800 mb-4">{service.title}</h3>
+                <p className="text-gray-600 mb-6">{service.description}</p>
                 
                 <ul className="space-y-2 mb-6">
                   {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-gray-300">
+                      <li key={featureIndex} className="flex items-center text-gray-600">
                       <svg className="w-5 h-5 text-[var(--color-primary)] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
@@ -90,12 +90,12 @@ export default function Services() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[var(--color-card)]">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">
             Not Sure Which Program is Right for You?
           </h2>
-          <p className="text-xl text-gray-300 mb-8">
+          <p className="text-xl text-gray-600 mb-8">
             Our fitness experts are here to help you choose the perfect program based on your goals, schedule, and preferences.
           </p>
           <Link
