@@ -4,42 +4,42 @@ export default function Locations() {
   const locations = [
     {
       name: "Al Mamzar Branch",
-      address: "Al Mamzar, Dubai",
-      phone: "+971 4 XXX XXXX",
+      address: "1st Floor, Al Jaseera Building, Opp. Al Mulla Plaza, Al Mamzar, Dubai",
+      phone: "+971 54 250 8119",
       email: "almamzar@restartfitness.com",
-      hours: "Mon-Fri: 6:00 AM - 10:00 PM\nSat-Sun: 7:00 AM - 9:00 PM",
+      hours: "Mon–Fri: 6:00 AM – 10:00 PM\nSat–Sun: 7:00 AM – 9:00 PM",
       features: ["Personal Training", "Group Classes", "Cardio Zone", "Free Weights", "Locker Rooms"],
       image: "/images/AlMamzar/"
     },
     {
-      name: "Al Moukhool Branch",
-      address: "Al Moukhool, Dubai",
-      phone: "+971 4 XXX XXXX",
-      email: "almoukhool@restartfitness.com",
-      hours: "Mon-Fri: 6:00 AM - 10:00 PM\nSat-Sun: 7:00 AM - 9:00 PM",
+      name: "Al Mankhool Branch",
+      address: "1st Floor, Al Jawhara Building (Next to ADCB Bank), Al Mankhool, Dubai",
+      phone: "+971 56 891 0323",
+      email: "almankhool@restartfitness.com",
+      hours: "Mon–Fri: 6:00 AM – 10:00 PM\nSat–Sun: 7:00 AM – 9:00 PM",
       features: ["Personal Training", "Group Classes", "Cardio Zone", "Free Weights", "Sauna"],
-      image: "/images/AlMoukhool/"
+      image: "/images/AlMoukhool/" // Assuming this image folder is used for Mankhool
     },
     {
-      name: "Al Rafa Branch",
-      address: "Al Rafa, Dubai",
-      phone: "+971 4 XXX XXXX",
-      email: "alrafa@restartfitness.com",
-      hours: "Mon-Fri: 6:00 AM - 10:00 PM\nSat-Sun: 7:00 AM - 9:00 PM",
+      name: "Al Raffa Branch",
+      address: "Ground Floor, Al Rumaithy Building, Al Raffa, Dubai",
+      phone: "+971 56 873 9633",
+      email: "alraffa@restartfitness.com",
+      hours: "Mon–Fri: 6:00 AM – 10:00 PM\nSat–Sun: 7:00 AM – 9:00 PM",
       features: ["Personal Training", "Group Classes", "Cardio Zone", "Free Weights", "Swimming Pool"],
-      image: "/images/Alrafa/"
+      image: "/images/AlRaffa/"
     },
     {
       name: "Al Rolla Branch",
-      address: "Al Rolla, Dubai",
-      phone: "+971 4 XXX XXXX",
+      address: "HC Floor, New Al Madina Supermarket Building, Al Rolla, Dubai",
+      phone: "+971 54 245 7211",
       email: "alrolla@restartfitness.com",
-      hours: "Mon-Fri: 6:00 AM - 10:00 PM\nSat-Sun: 7:00 AM - 9:00 PM",
+      hours: "Mon–Fri: 6:00 AM – 10:00 PM\nSat–Sun: 7:00 AM – 9:00 PM",
       features: ["Personal Training", "Group Classes", "Cardio Zone", "Free Weights", "Yoga Studio"],
       image: "/images/AlRolla/"
     }
   ];
-
+  
   return (
     <div className="min-h-screen bg-[var(--color-darker)]">
       {/* Hero Section */}
@@ -89,12 +89,7 @@ export default function Locations() {
                       <span className="text-gray-300">{location.phone}</span>
                     </div>
                     
-                    <div className="flex items-center">
-                      <svg className="w-5 h-5 text-[var(--color-primary)] mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                      </svg>
-                      <span className="text-gray-300">{location.email}</span>
-                    </div>
+                 
                     
                     <div className="flex items-start">
                       <svg className="w-5 h-5 text-[var(--color-primary)] mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
