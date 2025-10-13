@@ -2,10 +2,12 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const navItems = [
     // { name: 'About Us', href: '/about' },
@@ -16,6 +18,8 @@ export default function Navigation() {
     { name: 'Career', href: '/career' },
     { name: 'Franchise', href: '/franchise' },
   ];
+
+  const isActive = (href: string) => pathname === href;
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
@@ -59,12 +63,20 @@ export default function Navigation() {
                 <li key={item.name} className="relative group">
                   <Link
                     href={item.href}
-                    className="text-[var(--color-neutral-700)] hover:text-[var(--color-primary)] transition-colors duration-200 font-medium pb-1"
+                    className={`transition-colors duration-200 font-medium pb-1 ${
+                      isActive(item.href)
+                        ? 'text-[var(--color-primary)]'
+                        : 'text-[var(--color-neutral-700)] hover:text-[var(--color-primary)]'
+                    }`}
                   >
                     {item.name}
                   </Link>
                   {/* Underline animation */}
-                  <span className="absolute left-0 bottom-0 h-0.5 w-full bg-[#E0AE1A] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-left" />
+                  <span className={`absolute left-0 bottom-0 h-0.5 w-full bg-[#E0AE1A] transition-transform duration-300 ease-out origin-left ${
+                    isActive(item.href)
+                      ? 'scale-x-100'
+                      : 'scale-x-0 group-hover:scale-x-100'
+                  }`} />
                 </li>
               ))}
             </ul>
@@ -140,11 +152,19 @@ export default function Navigation() {
                   <Link
                     href={item.href}
                     onClick={() => setIsMenuOpen(false)}
-                    className="block text-[var(--color-neutral-700)] font-medium text-base px-2 py-2 rounded-md hover:text-[var(--color-primary)] transition-all duration-200"
+                    className={`block font-medium text-base px-2 py-2 rounded-md transition-all duration-200 ${
+                      isActive(item.href)
+                        ? 'text-[var(--color-primary)]'
+                        : 'text-[var(--color-neutral-700)] hover:text-[var(--color-primary)]'
+                    }`}
                   >
                     {item.name}
                   </Link>
-                  <span className="absolute left-2 bottom-1 h-0.5 bg-[#E0AE1A] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-left w-[calc(100%-1rem)]" />
+                  <span className={`absolute left-2 bottom-1 h-0.5 bg-[#E0AE1A] transition-transform duration-300 ease-out origin-left w-[calc(100%-1rem)] ${
+                    isActive(item.href)
+                      ? 'scale-x-100'
+                      : 'scale-x-0 group-hover:scale-x-100'
+                  }`} />
                 </li>
               ))}
             </ul>
