@@ -1,15 +1,27 @@
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 
 export default function Locations() {
   const locations = [
     {
-      name: "Al Mamzar Branch",
-      address: "1st Floor, Al Jaseera Building, Opp. Al Mulla Plaza, Al Mamzar, Dubai",
-      phone: "+971 54 250 8119",
-      email: "almamzar@restartfitness.com",
+      name: "Al Raffa Branch",
+      address: "Ground Floor, Al Rumaithy Building, Al Raffa, Dubai",
+      phone: "+971 56 873 9633",
+      email: "alraffa@restartfitness.com",
       hours: "Mon–Fri: 6:00 AM – 10:00 PM\nSat–Sun: 7:00 AM – 9:00 PM",
-      features: ["Personal Training", "Group Classes", "Cardio Zone", "Free Weights", "Locker Rooms"],
-      image: "/images/AlMamzar/"
+      features: ["Personal Training", "Group Classes", "Cardio Zone", "Free Weights", "Swimming Pool"],
+      images: [
+        "/images/Alrafa/DSC08903.jpg",
+        "/images/Alrafa/DSC08875.JPG",
+        "/images/Alrafa/DSC08880.JPG",
+        "/images/Alrafa/DSC08881.JPG", 
+        "/images/Alrafa/DSC08882.JPG",
+        "/images/Alrafa/DSC08893.JPG",
+        "/images/Alrafa/DSC08894.JPG",
+        "/images/Alrafa/DSC08902.JPG",
+       
+      ],
     },
     {
       name: "Al Mankhool Branch",
@@ -18,17 +30,33 @@ export default function Locations() {
       email: "almankhool@restartfitness.com",
       hours: "Mon–Fri: 6:00 AM – 10:00 PM\nSat–Sun: 7:00 AM – 9:00 PM",
       features: ["Personal Training", "Group Classes", "Cardio Zone", "Free Weights", "Sauna"],
-      image: "/images/AlMoukhool/" // Assuming this image folder is used for Mankhool
+      images: [
+        "/images/AlMoukhool/DSC08922.JPG",
+        "/images/AlMoukhool/DSC08918.JPG",
+        "/images/AlMoukhool/DSC08919.JPG",
+        "/images/AlMoukhool/DSC08921.JPG",
+        "/images/AlMoukhool/DSC08925.JPG",
+      
+      ],
     },
     {
-      name: "Al Raffa Branch",
-      address: "Ground Floor, Al Rumaithy Building, Al Raffa, Dubai",
-      phone: "+971 56 873 9633",
-      email: "alraffa@restartfitness.com",
+      name: "Al Mamzar Branch",
+      address: "1st Floor, Al Jaseera Building, Opp. Al Mulla Plaza, Al Mamzar, Dubai",
+      phone: "+971 54 250 8119",
+      email: "almamzar@restartfitness.com",
       hours: "Mon–Fri: 6:00 AM – 10:00 PM\nSat–Sun: 7:00 AM – 9:00 PM",
-      features: ["Personal Training", "Group Classes", "Cardio Zone", "Free Weights", "Swimming Pool"],
-      image: "/images/AlRaffa/"
+      features: ["Personal Training", "Group Classes", "Cardio Zone", "Free Weights", "Locker Rooms"],
+      images: [
+        "/images/AlMamzar/1.jpg",
+        "/images/AlMamzar/2.jpg",
+        "/images/AlMamzar/3.jpg",
+        "/images/AlMamzar/4.jpg",
+        "/images/AlMamzar/5.jpg",
+        "/images/AlMamzar/6.jpg",
+      ],
     },
+   
+   
     {
       name: "Al Rolla Branch",
       address: "HC Floor, New Al Madina Supermarket Building, Al Rolla, Dubai",
@@ -36,120 +64,177 @@ export default function Locations() {
       email: "alrolla@restartfitness.com",
       hours: "Mon–Fri: 6:00 AM – 10:00 PM\nSat–Sun: 7:00 AM – 9:00 PM",
       features: ["Personal Training", "Group Classes", "Cardio Zone", "Free Weights", "Yoga Studio"],
-      image: "/images/AlRolla/"
-    }
+      images: [
+        "/images/AlRolla/1.jpg",
+        "/images/AlRolla/2.jpg",
+        "/images/AlRolla/3.jpg",
+        "/images/AlRolla/4.jpg",
+        "/images/AlRolla/5.jpg",
+        "/images/AlRolla/6.jpg",
+      ],
+    },
   ];
-  
+
+  // Carousel state for each location
+  const [currentImageIndex, setCurrentImageIndex] = useState<number[]>(
+    locations.map(() => 0)
+  );
+
+  const nextImage = (locationIndex: number) => {
+    setCurrentImageIndex(prev => 
+      prev.map((index, i) => 
+        i === locationIndex 
+          ? (index + 1) % locations[locationIndex].images.length 
+          : index
+      )
+    );
+  };
+
+  const prevImage = (locationIndex: number) => {
+    setCurrentImageIndex(prev => 
+      prev.map((index, i) => 
+        i === locationIndex 
+          ? (index - 1 + locations[locationIndex].images.length) % locations[locationIndex].images.length 
+          : index
+      )
+    );
+  };
+
   return (
     <div className="min-h-screen bg-[var(--color-darker)]">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-6xl font-bold text-white mb-6">
+      {/* Simple Hero */}
+      <section className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] py-16 px-4">
+        <div className="max-w-6xl mx-auto text-center">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
             Our Locations
           </h1>
           <p className="text-xl text-white/90 max-w-3xl mx-auto">
-            Find a RestartFitness location near you. We have multiple branches across Dubai, each equipped with state-of-the-art facilities and expert trainers.
+            Explore our fitness centers across Dubai. Each location offers premium facilities and expert training.
           </p>
         </div>
       </section>
 
-      {/* Locations Grid */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[var(--color-card)]">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {locations.map((location, index) => (
-              <div key={index} className="bg-[var(--color-dark)] rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                {/* Location Image Placeholder */}
-                <div className="h-64 bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
-                  <div className="text-center">
-                    <svg className="w-16 h-16 text-gray-400 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+      {/* 4 Horizontal Rows with Carousels */}
+      <main className="py-12 px-4">
+        <div className="max-w-7xl mx-auto space-y-16">
+          {locations.map((location, locationIndex) => (
+            <section key={locationIndex} className="bg-[var(--color-card)] rounded-2xl p-8 shadow-lg">
+              {/* Location Header */}
+              <div className="text-center mb-8">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                  {location.name}
+                </h2>
+                <p className="text-gray-300 text-lg">{location.address}</p>
+              </div>
+
+              {/* Image Carousel */}
+              <div className="relative mb-8">
+                <div className="relative h-80 md:h-96 rounded-xl overflow-hidden">
+                  <Image
+                    src={location.images[currentImageIndex[locationIndex]]}
+                    alt={`${location.name} - Image ${currentImageIndex[locationIndex] + 1}`}
+                    fill
+                    className="object-cover transition-opacity duration-300"
+                  />
+                  
+                  {/* Navigation Arrows */}
+                  <button
+                    onClick={() => prevImage(locationIndex)}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all duration-300 hover:scale-110"
+                    aria-label="Previous image"
+                  >
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                     </svg>
-                    <p className="text-gray-400">Location Image</p>
+                  </button>
+                  
+                  <button
+                    onClick={() => nextImage(locationIndex)}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all duration-300 hover:scale-110"
+                    aria-label="Next image"
+                  >
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+
+                  {/* Image Counter */}
+                  <div className="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm">
+                    {currentImageIndex[locationIndex] + 1} / {location.images.length}
                   </div>
                 </div>
-                
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-white mb-4">{location.name}</h3>
-                  
-                  <div className="space-y-3 mb-6">
-                    <div className="flex items-start">
-                      <svg className="w-5 h-5 text-[var(--color-primary)] mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                      <span className="text-gray-300">{location.address}</span>
-                    </div>
-                    
-                    <div className="flex items-center">
-                      <svg className="w-5 h-5 text-[var(--color-primary)] mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                      </svg>
-                      <span className="text-gray-300">{location.phone}</span>
-                    </div>
-                    
-                 
-                    
-                    <div className="flex items-start">
-                      <svg className="w-5 h-5 text-[var(--color-primary)] mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      <div className="text-gray-300">
-                        <pre className="whitespace-pre-line font-sans">{location.hours}</pre>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="mb-6">
-                    <h4 className="font-semibold text-white mb-2">Facilities & Services:</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {location.features.map((feature, featureIndex) => (
-                        <span key={featureIndex} className="px-3 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full text-sm">
-                          {feature}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  <div className="flex gap-3">
-                    <a
-                      href={`tel:${location.phone}`}
-                      className="flex-1 text-center px-4 py-2 bg-[var(--color-primary)] text-white font-semibold rounded-lg hover:opacity-95 transition-opacity"
+
+                {/* Thumbnail Strip */}
+                <div className="mt-4 flex justify-center gap-2 overflow-x-auto py-2">
+                  {location.images.map((image, imageIndex) => (
+                    <button
+                      key={imageIndex}
+                      onClick={() => setCurrentImageIndex(prev => 
+                        prev.map((index, i) => 
+                          i === locationIndex ? imageIndex : index
+                        )
+                      )}
+                      className={`flex-shrink-0 w-20 h-16 rounded-lg overflow-hidden transition-all duration-300 ${
+                        currentImageIndex[locationIndex] === imageIndex
+                          ? 'ring-2 ring-[var(--color-primary)] scale-105'
+                          : 'ring-2 ring-gray-600 hover:ring-gray-400'
+                      }`}
                     >
-                      Call Now
-                    </a>
-                    <a
-                      href={`mailto:${location.email}`}
-                      className="flex-1 text-center px-4 py-2 border border-[var(--color-primary)] text-[var(--color-primary)] font-semibold rounded-lg hover:bg-[var(--color-primary)] hover:text-white transition-colors"
-                    >
-                      Email
-                    </a>
-                  </div>
+                      <Image
+                        src={image}
+                        alt={`${location.name} thumbnail ${imageIndex + 1}`}
+                        width={80}
+                        height={64}
+                        className="object-cover w-full h-full"
+                      />
+                    </button>
+                  ))}
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Map Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[var(--color-card)]">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-white mb-8">
-            Find Us on the Map
-          </h2>
-          <div className="bg-gray-800 rounded-lg h-96 flex items-center justify-center">
-            <div className="text-center">
-              <svg className="w-16 h-16 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-              </svg>
-              <p className="text-gray-400 text-lg">Interactive Map Coming Soon</p>
-              <p className="text-gray-500">Use the contact information above to reach us</p>
-            </div>
-          </div>
+              {/* Location Details */}
+              <div className="grid md:grid-cols-2 gap-8">
+                {/* Contact Information */}
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-white mb-4">Contact Information</h3>
+                  
+                  <div className="flex items-center gap-3">
+                    <svg className="w-5 h-5 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    <a href={`tel:${location.phone}`} className="text-gray-300 hover:text-[var(--color-primary)] transition-colors">
+                      {location.phone}
+                    </a>
+                  </div>
+                  
+                
+                  
+               
+                </div>
+
+                {/* Facilities */}
+              
+              </div>
+
+              {/* Action Buttons */}
+              {/* <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href={`tel:${location.phone}`}
+                  className="px-8 py-3 bg-[var(--color-primary)] text-white font-semibold rounded-lg hover:bg-[var(--color-primary)]/90 transition-colors text-center"
+                >
+                  📞 Call Now
+                </a>
+                <a
+                  href={`mailto:${location.email}`}
+                  className="px-8 py-3 border-2 border-[var(--color-primary)] text-[var(--color-primary)] font-semibold rounded-lg hover:bg-[var(--color-primary)] hover:text-white transition-colors text-center"
+                >
+                  ✉️ Send Email
+                </a>
+              </div> */}
+            </section>
+          ))}
         </div>
-      </section>
+      </main>
     </div>
   );
 }
