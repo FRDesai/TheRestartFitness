@@ -8,9 +8,6 @@ export default function Locations() {
       name: "Al Raffa Branch",
       address: "Ground Floor, Al Rumaithy Building, Al Raffa, Dubai",
       phone: "+971 56 873 9633",
-      email: "alraffa@restartfitness.com",
-      hours: "Mon–Fri: 6:00 AM – 10:00 PM\nSat–Sun: 7:00 AM – 9:00 PM",
-      features: ["Personal Training", "Group Classes", "Cardio Zone", "Free Weights", "Swimming Pool"],
       images: [
         "/images/Alrafa/DSC08903.jpg",
         "/images/Alrafa/DSC08875.JPG",
@@ -27,9 +24,7 @@ export default function Locations() {
       name: "Al Mankhool Branch",
       address: "1st Floor, Al Jawhara Building (Next to ADCB Bank), Al Mankhool, Dubai",
       phone: "+971 56 891 0323",
-      email: "almankhool@restartfitness.com",
-      hours: "Mon–Fri: 6:00 AM – 10:00 PM\nSat–Sun: 7:00 AM – 9:00 PM",
-      features: ["Personal Training", "Group Classes", "Cardio Zone", "Free Weights", "Sauna"],
+     
       images: [
         "/images/AlMoukhool/DSC08922.JPG",
         "/images/AlMoukhool/DSC08918.JPG",
@@ -43,9 +38,7 @@ export default function Locations() {
       name: "Al Mamzar Branch",
       address: "1st Floor, Al Jaseera Building, Opp. Al Mulla Plaza, Al Mamzar, Dubai",
       phone: "+971 54 250 8119",
-      email: "almamzar@restartfitness.com",
-      hours: "Mon–Fri: 6:00 AM – 10:00 PM\nSat–Sun: 7:00 AM – 9:00 PM",
-      features: ["Personal Training", "Group Classes", "Cardio Zone", "Free Weights", "Locker Rooms"],
+      
       images: [
         "/images/AlMamzar/1.jpg",
         "/images/AlMamzar/2.jpg",
@@ -61,9 +54,7 @@ export default function Locations() {
       name: "Al Rolla Branch",
       address: "HC Floor, New Al Madina Supermarket Building, Al Rolla, Dubai",
       phone: "+971 54 245 7211",
-      email: "alrolla@restartfitness.com",
-      hours: "Mon–Fri: 6:00 AM – 10:00 PM\nSat–Sun: 7:00 AM – 9:00 PM",
-      features: ["Personal Training", "Group Classes", "Cardio Zone", "Free Weights", "Yoga Studio"],
+
       images: [
         "/images/AlRolla/1.jpg",
         "/images/AlRolla/2.jpg",
