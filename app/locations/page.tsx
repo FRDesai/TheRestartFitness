@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 export default function Locations() {
@@ -71,6 +71,11 @@ export default function Locations() {
     locations.map(() => 0)
   );
 
+  // Auto-rotation state
+  const [isPaused, setIsPaused] = useState<boolean[]>(
+    locations.map(() => false)
+  );
+
   const nextImage = (locationIndex: number) => {
     setCurrentImageIndex(prev => 
       prev.map((index, i) => 
@@ -89,6 +94,36 @@ export default function Locations() {
           : index
       )
     );
+  };
+
+  // Auto-rotation effect
+  useEffect(() => {
+    const intervals = locations.map((_, locationIndex) => {
+      return setInterval(() => {
+        setCurrentImageIndex(prev => 
+          prev.map((index, i) => {
+            if (i === locationIndex && !isPaused[locationIndex]) {
+              return (index + 1) % locations[locationIndex].images.length;
+            }
+            return index;
+          })
+        );
+      }, 2500); // 3.5 seconds interval
+    });
+
+    // Cleanup intervals on component unmount
+    return () => {
+      intervals.forEach(interval => clearInterval(interval));
+    };
+  }, [isPaused]);
+
+  // Pause/resume functions
+  const pauseRotation = (locationIndex: number) => {
+    setIsPaused(prev => prev.map((paused, i) => i === locationIndex ? true : paused));
+  };
+
+  const resumeRotation = (locationIndex: number) => {
+    setIsPaused(prev => prev.map((paused, i) => i === locationIndex ? false : paused));
   };
 
   return (
@@ -155,7 +190,11 @@ export default function Locations() {
               </div>
 
               {/* Image Carousel */}
-              <div className="relative mb-8">
+              <div 
+                className="relative mb-8"
+                onMouseEnter={() => pauseRotation(locationIndex)}
+                onMouseLeave={() => resumeRotation(locationIndex)}
+              >
                 <div className="relative h-80 md:h-96 rounded-xl overflow-hidden">
                   <Image
                     src={location.images[currentImageIndex[locationIndex]]}
