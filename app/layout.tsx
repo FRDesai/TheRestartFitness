@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { PT_Serif } from "next/font/google";
 import "./globals.css";
 import Navigation from "./components/Navigation";
 
-const inter = Inter({
-  variable: "--font-inter",
+const ptSerif = PT_Serif({
+  variable: "--font-pt-serif",
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} antialiased`}
+        className={`${ptSerif.variable} antialiased`}
       >
         <Navigation />
         {children}
