@@ -93,15 +93,51 @@ export default function Locations() {
 
   return (
     <div className="min-h-screen bg-[var(--color-darker)]">
-      {/* Simple Hero */}
-      <section className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] py-16 px-4">
-        <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-            Our Locations
+      {/* Enhanced Hero Banner */}
+      <section className="relative bg-darker py-20 px-4 overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-100">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundSize: '60px 60px'
+          }}></div>
+        </div>
+        
+        {/* Decorative Elements */}
+        <div className="absolute top-0 left-0 w-full h-full">
+          <div className="absolute top-10 left-10 w-20 h-20 bg-white/5 rounded-full blur-xl"></div>
+          <div className="absolute top-20 right-20 w-32 h-32 bg-white/5 rounded-full blur-xl"></div>
+          <div className="absolute bottom-10 left-1/4 w-16 h-16 bg-white/5 rounded-full blur-xl"></div>
+          <div className="absolute bottom-20 right-1/3 w-24 h-24 bg-white/5 rounded-full blur-xl"></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative max-w-6xl mx-auto text-center z-10">
+         
+          
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-yellow-300">Locations</span>
           </h1>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto">
-            Explore our fitness centers across Dubai. Each location offers premium facilities and expert training.
+          
+          <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto mb-8 leading-relaxed">
+            Discover our premium fitness centers across Dubai. Each location is strategically placed to serve our community with world-class facilities and expert training.
           </p>
+          
+          {/* Stats */}
+          <div className="flex flex-wrap justify-center gap-8 mt-12">
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-white mb-2">4</div>
+              <div className="text-white/80 text-sm md:text-base">Premium Locations</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-white mb-2">24/7</div>
+              <div className="text-white/80 text-sm md:text-base">Access Available</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-white mb-2">100%</div>
+              <div className="text-white/80 text-sm md:text-base">Expert Training</div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -184,11 +220,9 @@ export default function Locations() {
               </div>
 
               {/* Location Details */}
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="gap-8">
                 {/* Contact Information */}
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-white mb-4">Contact Information</h3>
-                  
+                <div className="flex justify-center items-center">
                   <div className="flex items-center gap-3">
                     <svg className="w-5 h-5 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -197,10 +231,6 @@ export default function Locations() {
                       {location.phone}
                     </a>
                   </div>
-                  
-                
-                  
-               
                 </div>
 
                 {/* Facilities */}
