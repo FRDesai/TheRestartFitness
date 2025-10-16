@@ -156,7 +156,7 @@ export default function Career() {
   return (
     <div className="min-h-screen bg-[var(--color-darker)]">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] py-20 px-4 sm:px-6 lg:px-8">
+      <section className="bg-gradient-to-r from-[var(--color-dark)] to-[var(--color-darker)] py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl sm:text-6xl font-bold text-white mb-6">
             Join Our Team
@@ -170,9 +170,9 @@ export default function Career() {
    
 
       {/* Why Work With Us */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[var(--color-dark)]">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+          <h2 className="text-3xl font-bold text-center text-[var(--color-neutral-700)] mb-12">
             Why Work With Us?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -183,8 +183,8 @@ export default function Career() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{benefit.title}</h3>
-                <p className="text-gray-600">{benefit.description}</p>
+                <h3 className="text-xl font-semibold text-[var(--color-neutral-700)] mb-2">{benefit.title}</h3>
+                <p className="text-[var(--color-neutral-500)]">{benefit.description}</p>
               </div>
             ))}
           </div>
@@ -196,8 +196,8 @@ export default function Career() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{benefit.title}</h3>
-                <p className="text-gray-600">{benefit.description}</p>
+                <h3 className="text-xl font-semibold text-[var(--color-neutral-700)] mb-2">{benefit.title}</h3>
+                <p className="text-[var(--color-neutral-500)]">{benefit.description}</p>
               </div>
             ))}
           </div>
@@ -205,29 +205,29 @@ export default function Career() {
       </section>
 
       {/* Application Process */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[var(--color-primary)]">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[var(--color-darker)]">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-8">
             How to Apply
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-[var(--color-primary)] font-bold text-lg">1</span>
+              <div className="w-12 h-12 bg-[var(--color-primary)] rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-[var(--color-dark)] font-bold text-lg">1</span>
               </div>
               <h3 className="text-xl font-semibold text-white mb-2">Submit Application</h3>
               <p className="text-white/90">Send us your resume and cover letter through our contact form.</p>
             </div>
             <div className="text-center">
-              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-[var(--color-primary)] font-bold text-lg">2</span>
+              <div className="w-12 h-12 bg-[var(--color-primary)] rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-[var(--color-dark)] font-bold text-lg">2</span>
               </div>
               <h3 className="text-xl font-semibold text-white mb-2">Initial Interview</h3>
               <p className="text-white/90">We'll schedule a phone or video interview to learn more about you.</p>
             </div>
             <div className="text-center">
-              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-[var(--color-primary)] font-bold text-lg">3</span>
+              <div className="w-12 h-12 bg-[var(--color-primary)] rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-[var(--color-dark)] font-bold text-lg">3</span>
               </div>
               <h3 className="text-xl font-semibold text-white mb-2">Final Interview</h3>
               <p className="text-white/90">Meet the team in person and see if we're a good fit for each other.</p>
@@ -236,37 +236,21 @@ export default function Career() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Ready to Join Our Team?
-          </h2>
-          <p className="text-xl text-gray-600 mb-8">
-            Don't see a position that matches your skills? We're always looking for talented individuals to join our team. Send us your resume and let us know how you'd like to contribute.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block px-8 py-4 bg-[var(--color-primary)] text-white font-semibold rounded-lg shadow-lg hover:opacity-95 transition-all duration-300 transform hover:scale-105"
-          >
-            Send Your Application
-          </Link>
-        </div>
-      </section>
+   
 
          {/* Open Positions */}
-         <section className="py-16 px-4 sm:px-6 lg:px-8">
+         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[var(--color-dark)]">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+          <h2 className="text-3xl font-bold text-center text-[var(--color-neutral-700)] mb-12">
             Current Openings
           </h2>
           <div className="space-y-8">
             {positions.map((position, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
+              <div key={index} className="bg-[var(--color-card)] rounded-lg shadow-lg p-8 hover:bg-[var(--color-card-hover)] transition-all duration-300">
                 <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{position.title}</h3>
-                    <div className="flex flex-wrap gap-4 text-sm text-gray-600 mb-4">
+                    <h3 className="text-2xl font-bold text-[var(--color-neutral-700)] mb-2">{position.title}</h3>
+                    <div className="flex flex-wrap gap-4 text-sm text-[var(--color-neutral-500)] mb-4">
                       <span className="flex items-center">
                         <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -287,12 +271,12 @@ export default function Career() {
                         {position.experience}
                       </span>
                     </div>
-                    <p className="text-gray-700 mb-6">{position.description}</p>
+                    <p className="text-[var(--color-neutral-500)] mb-6">{position.description}</p>
                   </div>
                   <div className="lg:ml-8">
                     <Link
                       href="/contact"
-                      className="inline-block px-6 py-3 bg-[var(--color-primary)] text-white font-semibold rounded-lg hover:opacity-95 transition-opacity"
+                      className="inline-block px-6 py-3 bg-[var(--color-primary)] text-[var(--color-dark)] font-semibold rounded-lg hover:bg-[var(--color-secondary)] transition-colors"
                     >
                       Apply Now
                     </Link>
@@ -301,10 +285,10 @@ export default function Career() {
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-3">Requirements:</h4>
+                    <h4 className="font-semibold text-[var(--color-neutral-700)] mb-3">Requirements:</h4>
                     <ul className="space-y-2">
                       {position.requirements.map((req, reqIndex) => (
-                        <li key={reqIndex} className="flex items-start text-gray-700">
+                        <li key={reqIndex} className="flex items-start text-[var(--color-neutral-500)]">
                           <svg className="w-5 h-5 text-[var(--color-primary)] mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                           </svg>
@@ -314,10 +298,10 @@ export default function Career() {
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-3">Benefits:</h4>
+                    <h4 className="font-semibold text-[var(--color-neutral-700)] mb-3">Benefits:</h4>
                     <ul className="space-y-2">
                       {position.benefits.map((benefit, benefitIndex) => (
-                        <li key={benefitIndex} className="flex items-start text-gray-700">
+                        <li key={benefitIndex} className="flex items-start text-[var(--color-neutral-500)]">
                           <svg className="w-5 h-5 text-[var(--color-primary)] mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                           </svg>
@@ -330,6 +314,23 @@ export default function Career() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+         {/* CTA Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[var(--color-light)]">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-[var(--color-neutral-700)] mb-4">
+            Ready to Join Our Team?
+          </h2>
+          <p className="text-xl text-[var(--color-neutral-500)] mb-8">
+            Don't see a position that matches your skills? We're always looking for talented individuals to join our team. Send us your resume and let us know how you'd like to contribute.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-block px-8 py-4 bg-[var(--color-primary)] text-[var(--color-dark)] font-semibold rounded-lg shadow-lg hover:bg-[var(--color-secondary)] transition-all duration-300 transform hover:scale-105"
+          >
+            Send Your Application
+          </Link>
         </div>
       </section>
     </div>
