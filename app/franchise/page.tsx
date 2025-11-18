@@ -81,35 +81,85 @@ export default function Franchise() {
   ];
 
   return (
-    <div className="min-h-screen bg-[var(--color-darker)]">
+    <div className="min-h-screen bg-gradient-to-br from-[var(--color-darker)] to-[var(--color-dark)]">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-6xl font-bold text-white mb-6">
-            Own a RestartFitness Franchise
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Background with gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)]/20 via-[var(--color-card)] to-[var(--color-primary)]/10"></div>
+        
+        {/* Decorative Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div
+            className="absolute top-0 left-0 w-full h-full"
+            style={{
+              backgroundImage: `radial-gradient(circle at 30px 30px, var(--color-primary) 2px, transparent 2px)`,
+              backgroundSize: "60px 60px",
+            }}
+          ></div>
+        </div>
+
+        {/* Corner Accents */}
+        <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-[var(--color-primary)]/30 to-transparent rounded-br-full blur-2xl"></div>
+        <div className="absolute bottom-0 right-0 w-40 h-40 bg-gradient-to-tl from-[var(--color-primary)]/30 to-transparent rounded-tl-full blur-2xl"></div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto text-center">
+          <h1 className="text-4xl sm:text-6xl font-bold text-white mb-6 animate-fade-in-up">
+            Own a <span className="text-[var(--color-primary)]">RestartFitness</span> Franchise
           </h1>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto animate-fade-in-up delay-200">
             Join the growing fitness industry and become part of the RestartFitness family. Own your own successful fitness business with our proven model and comprehensive support system.
           </p>
         </div>
       </section>
 
       {/* Why Franchise With Us */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            Why Franchise With RestartFitness?
-          </h2>
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Background with gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-darker)] via-[var(--color-card)] to-[var(--color-darker)]"></div>
+        
+        {/* Decorative Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div
+            className="absolute top-0 left-0 w-full h-full"
+            style={{
+              backgroundImage: `radial-gradient(circle at 30px 30px, var(--color-primary) 2px, transparent 2px)`,
+              backgroundSize: "60px 60px",
+            }}
+          ></div>
+        </div>
+
+        {/* Corner Accents */}
+        <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[var(--color-primary)]/30 to-transparent rounded-bl-full blur-2xl"></div>
+        <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-[var(--color-primary)]/30 to-transparent rounded-tr-full blur-2xl"></div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4 relative inline-block">
+              Why Franchise With RestartFitness?
+              {/* Underline decoration */}
+              <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-64 h-1 bg-gradient-to-r from-transparent via-[var(--color-primary)] to-transparent"></span>
+            </h2>
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto mt-6">
+              Discover the advantages of joining our franchise network
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {franchiseBenefits.map((benefit, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-                <div className="w-16 h-16 bg-[var(--color-primary)] rounded-full flex items-center justify-center mx-auto mb-4">
+              <div 
+                key={index} 
+                className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-8 hover:bg-white/10 transition-all duration-300 hover:shadow-2xl hover:shadow-[var(--color-primary)]/20 animate-fade-in-up"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="w-16 h-16 bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-secondary)] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={benefit.icon} />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2 text-center">{benefit.title}</h3>
-                <p className="text-gray-600 text-center">{benefit.description}</p>
+                <h3 className="text-xl font-semibold text-white mb-3 text-center">{benefit.title}</h3>
+                <p className="text-gray-300 text-center leading-relaxed">{benefit.description}</p>
               </div>
             ))}
           </div>
@@ -117,44 +167,67 @@ export default function Franchise() {
       </section>
 
       {/* Investment Information */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            Investment Information
-          </h2>
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Background with gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-card)] via-[var(--color-darker)] to-[var(--color-card)]"></div>
+        
+        {/* Decorative Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div
+            className="absolute top-0 left-0 w-full h-full"
+            style={{
+              backgroundImage: `radial-gradient(circle at 30px 30px, var(--color-primary) 2px, transparent 2px)`,
+              backgroundSize: "60px 60px",
+            }}
+          ></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4 relative inline-block">
+              Investment Information
+              {/* Underline decoration */}
+              <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-56 h-1 bg-gradient-to-r from-transparent via-[var(--color-primary)] to-transparent"></span>
+            </h2>
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto mt-6">
+              Everything you need to know about starting your franchise
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Investment Breakdown</h3>
-              <div className="space-y-4">
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8">
+              <h3 className="text-2xl font-bold text-white mb-6">Investment Breakdown</h3>
+              <div className="space-y-4 mb-6">
                 {investmentBreakdown.map((item, index) => (
-                  <div key={index} className="border-l-4 border-[var(--color-primary)] pl-4">
+                  <div key={index} className="border-l-4 border-[var(--color-primary)] pl-4 py-2">
                     <div className="flex justify-between items-start">
                       <div>
-                        <h4 className="font-semibold text-gray-900">{item.item}</h4>
-                        <p className="text-gray-600 text-sm">{item.description}</p>
+                        <h4 className="font-semibold text-white mb-1">{item.item}</h4>
+                        <p className="text-gray-400 text-sm">{item.description}</p>
                       </div>
-                      <span className="font-bold text-[var(--color-primary)]">{item.amount}</span>
+                      <span className="font-bold text-[var(--color-primary)] text-lg ml-4">{item.amount}</span>
                     </div>
                   </div>
                 ))}
               </div>
-              <div className="mt-6 p-4 bg-[var(--color-primary)]/10 rounded-lg">
+              <div className="mt-6 p-6 bg-gradient-to-br from-[var(--color-primary)]/20 to-[var(--color-secondary)]/20 rounded-xl border border-[var(--color-primary)]/30">
                 <div className="flex justify-between items-center">
-                  <span className="text-lg font-semibold text-gray-900">Total Investment</span>
-                  <span className="text-2xl font-bold text-[var(--color-primary)]">AED 500,000</span>
+                  <span className="text-lg font-semibold text-white">Total Investment</span>
+                  <span className="text-3xl font-bold text-[var(--color-primary)]">AED 500,000</span>
                 </div>
               </div>
             </div>
             
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Franchise Requirements</h3>
-              <ul className="space-y-3">
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8">
+              <h3 className="text-2xl font-bold text-white mb-6">Franchise Requirements</h3>
+              <ul className="space-y-4">
                 {requirements.map((requirement, index) => (
-                  <li key={index} className="flex items-start text-gray-700">
-                    <svg className="w-5 h-5 text-[var(--color-primary)] mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li key={index} className="flex items-start text-gray-300">
+                    <svg className="w-6 h-6 text-[var(--color-primary)] mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    {requirement}
+                    <span className="leading-relaxed">{requirement}</span>
                   </li>
                 ))}
               </ul>
@@ -164,19 +237,50 @@ export default function Franchise() {
       </section>
 
       {/* Franchise Process */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            How to Become a Franchisee
-          </h2>
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Background with gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-darker)] via-[var(--color-card)] to-[var(--color-darker)]"></div>
+        
+        {/* Decorative Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div
+            className="absolute top-0 left-0 w-full h-full"
+            style={{
+              backgroundImage: `radial-gradient(circle at 30px 30px, var(--color-primary) 2px, transparent 2px)`,
+              backgroundSize: "60px 60px",
+            }}
+          ></div>
+        </div>
+
+        {/* Corner Accents */}
+        <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-[var(--color-primary)]/30 to-transparent rounded-br-full blur-2xl"></div>
+        <div className="absolute bottom-0 right-0 w-40 h-40 bg-gradient-to-tl from-[var(--color-primary)]/30 to-transparent rounded-tl-full blur-2xl"></div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4 relative inline-block">
+              How to Become a Franchisee
+              {/* Underline decoration */}
+              <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-64 h-1 bg-gradient-to-r from-transparent via-[var(--color-primary)] to-transparent"></span>
+            </h2>
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto mt-6">
+              A simple 5-step process to start your franchise journey
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
             {processSteps.map((step, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-[var(--color-primary)] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-bold text-xl">{step.step}</span>
+              <div 
+                key={index} 
+                className="text-center animate-fade-in-up"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="w-20 h-20 bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-secondary)] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg border-4 border-white/10">
+                  <span className="text-white font-bold text-2xl">{step.step}</span>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{step.title}</h3>
-                <p className="text-gray-600 text-sm">{step.description}</p>
+                <h3 className="text-lg font-semibold text-white mb-3">{step.title}</h3>
+                <p className="text-gray-300 text-sm leading-relaxed">{step.description}</p>
               </div>
             ))}
           </div>
@@ -184,23 +288,46 @@ export default function Franchise() {
       </section>
 
       {/* Success Stories */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            Franchisee Success Stories
-          </h2>
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Background with gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-card)] via-[var(--color-darker)] to-[var(--color-card)]"></div>
+        
+        {/* Decorative Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div
+            className="absolute top-0 left-0 w-full h-full"
+            style={{
+              backgroundImage: `radial-gradient(circle at 30px 30px, var(--color-primary) 2px, transparent 2px)`,
+              backgroundSize: "60px 60px",
+            }}
+          ></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4 relative inline-block">
+              Franchisee Success Stories
+              {/* Underline decoration */}
+              <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-64 h-1 bg-gradient-to-r from-transparent via-[var(--color-primary)] to-transparent"></span>
+            </h2>
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto mt-6">
+              Hear from our successful franchise partners
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-gray-50 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Ahmed Al-Mansouri</h3>
-              <p className="text-[var(--color-primary)] font-semibold mb-3">Al Mamzar Branch Owner</p>
-              <blockquote className="text-gray-700 italic">
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-8 hover:bg-white/10 transition-all duration-300 hover:shadow-2xl hover:shadow-[var(--color-primary)]/20">
+              <h3 className="text-xl font-semibold text-white mb-2">Ahmed Al-Mansouri</h3>
+              <p className="text-[var(--color-primary)] font-semibold mb-4">Al Mamzar Branch Owner</p>
+              <blockquote className="text-gray-300 italic leading-relaxed border-l-4 border-[var(--color-primary)] pl-4">
                 "Opening my RestartFitness franchise was the best business decision I've made. The support from the corporate team has been incredible, and I've been profitable within 8 months. The brand recognition and proven systems make all the difference."
               </blockquote>
             </div>
-            <div className="bg-gray-50 rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Sarah Johnson</h3>
-              <p className="text-[var(--color-primary)] font-semibold mb-3">Al Rafa Branch Owner</p>
-              <blockquote className="text-gray-700 italic">
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-8 hover:bg-white/10 transition-all duration-300 hover:shadow-2xl hover:shadow-[var(--color-primary)]/20">
+              <h3 className="text-xl font-semibold text-white mb-2">Sarah Johnson</h3>
+              <p className="text-[var(--color-primary)] font-semibold mb-4">Al Rafa Branch Owner</p>
+              <blockquote className="text-gray-300 italic leading-relaxed border-l-4 border-[var(--color-primary)] pl-4">
                 "As someone new to the fitness industry, I was nervous about starting my own business. But RestartFitness provided everything I needed - from training to marketing support. My location is thriving and I couldn't be happier."
               </blockquote>
             </div>
@@ -209,38 +336,76 @@ export default function Franchise() {
       </section>
 
       {/* Financial Performance */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[var(--color-primary)]">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-white mb-12">
-            Financial Performance Highlights
-          </h2>
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)]/20 via-[var(--color-primary)] to-[var(--color-secondary)]"></div>
+        
+        {/* Decorative Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div
+            className="absolute top-0 left-0 w-full h-full"
+            style={{
+              backgroundImage: `radial-gradient(circle at 30px 30px, white 2px, transparent 2px)`,
+              backgroundSize: "60px 60px",
+            }}
+          ></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto text-center">
+          <div className="mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4 relative inline-block">
+              Financial Performance Highlights
+              {/* Underline decoration */}
+              <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-80 h-1 bg-gradient-to-r from-transparent via-white to-transparent"></span>
+            </h2>
+            <p className="text-white/90 text-lg max-w-2xl mx-auto mt-6">
+              See the potential returns on your investment
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white/10 rounded-lg p-6">
-              <p className="text-4xl font-bold text-white mb-2">AED 2.5M</p>
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 p-8 hover:bg-white/20 transition-all duration-300">
+              <p className="text-5xl font-bold text-white mb-2">AED 2.5M</p>
               <p className="text-white/90">Average Annual Revenue</p>
             </div>
-            <div className="bg-white/10 rounded-lg p-6">
-              <p className="text-4xl font-bold text-white mb-2">25%</p>
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 p-8 hover:bg-white/20 transition-all duration-300">
+              <p className="text-5xl font-bold text-white mb-2">25%</p>
               <p className="text-white/90">Average Profit Margin</p>
             </div>
-            <div className="bg-white/10 rounded-lg p-6">
-              <p className="text-4xl font-bold text-white mb-2">18</p>
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 p-8 hover:bg-white/20 transition-all duration-300">
+              <p className="text-5xl font-bold text-white mb-2">18</p>
               <p className="text-white/90">Months to Break Even</p>
             </div>
           </div>
-          <p className="text-white/80 mt-6 text-sm">
+          <p className="text-white/70 mt-8 text-sm max-w-3xl mx-auto">
             * Financial performance varies by location and market conditions. Past performance does not guarantee future results.
           </p>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Background with gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-darker)] via-[var(--color-card)] to-[var(--color-darker)]"></div>
+        
+        {/* Decorative Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div
+            className="absolute top-0 left-0 w-full h-full"
+            style={{
+              backgroundImage: `radial-gradient(circle at 30px 30px, var(--color-primary) 2px, transparent 2px)`,
+              backgroundSize: "60px 60px",
+            }}
+          ></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
             Ready to Start Your Franchise Journey?
           </h2>
-          <p className="text-xl text-gray-600 mb-8">
+          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             Take the first step towards owning your own RestartFitness location. Our franchise development team is ready to help you explore this exciting opportunity.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
