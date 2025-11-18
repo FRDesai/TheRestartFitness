@@ -1,19 +1,30 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useRef } from "react";
 
 export default function Home() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-[var(--color-darker)] to-[var(--color-dark)]">
       {/* Hero Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-cover bg-center bg-no-repeat overflow-hidden">
-        {/* Animated Background */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110 animate-zoom-slow"
-          style={{ backgroundImage: "url(/images/AlMoukhool/DSC08925.JPG)" }}
-        ></div>
-
-        {/* Thin Black Overlay */}
-        <div className="absolute inset-0 bg-black/60"></div>
+        {/* Video Background */}
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            ref={videoRef}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover scale-110 animate-zoom-slow"
+            style={{ filter: "brightness(0.4)" }}
+          >
+            <source src="/images/Alrafa/al rafa video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
 
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto text-center">
