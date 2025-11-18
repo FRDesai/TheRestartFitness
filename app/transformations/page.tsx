@@ -1,6 +1,11 @@
+"use client";
 import Image from "next/image";
+import Link from "next/link";
+import { useRef } from "react";
 
 export default function Transformations() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
   const transformations = [
     {
       name: "Sarah Ahmed",
@@ -84,79 +89,127 @@ export default function Transformations() {
   ];
 
   return (
-    <div className="min-h-screen bg-[var(--color-darker)]">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-6xl font-bold text-white mb-6">
-            Transformations & Testimonials
+    <div className="min-h-screen bg-gradient-to-br from-[var(--color-darker)] to-[var(--color-dark)]">
+      {/* Hero Section with Video */}
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-cover bg-center bg-no-repeat overflow-hidden min-h-[70vh] flex items-center">
+        {/* Video Background */}
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            ref={videoRef}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover scale-110"
+            style={{ filter: "brightness(0.4)" }}
+          >
+            <source src="/images/Alrafa/al rafa video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto text-center w-full">
+          <h1 className="text-4xl sm:text-6xl font-bold text-white mb-6 animate-fade-in-up">
+            Transformations &{" "}
+            <span className="text-[var(--color-primary)]">Testimonials</span>
           </h1>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto">
-            Real stories from real people who have transformed their lives with RestartFitness. See the incredible results our clients have achieved and hear what they have to say about their journey.
+          <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto animate-fade-in-up delay-200">
+            Real stories from real people who have transformed their lives with RestartFitness. 
+            See the incredible results our clients have achieved and hear what they have to say about their journey.
           </p>
         </div>
       </section>
 
       {/* Transformations Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            Amazing Transformations
-          </h2>
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Background with gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-darker)] via-[var(--color-card)] to-[var(--color-darker)]"></div>
+        
+        {/* Decorative Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div
+            className="absolute top-0 left-0 w-full h-full"
+            style={{
+              backgroundImage: `radial-gradient(circle at 30px 30px, var(--color-primary) 2px, transparent 2px)`,
+              backgroundSize: "60px 60px",
+            }}
+          ></div>
+        </div>
+
+        {/* Corner Accents */}
+        <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-[var(--color-primary)]/30 to-transparent rounded-br-full blur-2xl"></div>
+        <div className="absolute bottom-0 right-0 w-40 h-40 bg-gradient-to-tl from-[var(--color-primary)]/30 to-transparent rounded-tl-full blur-2xl"></div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4 relative inline-block">
+              Amazing Transformations
+              {/* Underline decoration */}
+              <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-48 h-1 bg-gradient-to-r from-transparent via-[var(--color-primary)] to-transparent"></span>
+            </h2>
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto mt-6">
+              Witness the incredible journeys of our members who transformed their lives
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {transformations.map((transformation, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-2xl font-bold text-gray-900">{transformation.name}</h3>
-                    <span className="text-sm text-gray-500">Age {transformation.age}</span>
-                  </div>
-                  
-                  <div className="grid grid-cols-2 gap-4 mb-6">
-                    <div className="text-center">
-                      <div className="h-48 bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg flex items-center justify-center mb-2">
-                        <div className="text-center">
-                          <svg className="w-12 h-12 text-gray-400 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                          </svg>
-                          <p className="text-gray-500 text-sm">Before</p>
-                        </div>
-                      </div>
-                      <p className="text-sm font-semibold text-gray-700">Before</p>
-                    </div>
-                    <div className="text-center">
-                      <div className="h-48 bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg flex items-center justify-center mb-2">
-                        <div className="text-center">
-                          <svg className="w-12 h-12 text-gray-400 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                          </svg>
-                          <p className="text-gray-500 text-sm">After</p>
-                        </div>
-                      </div>
-                      <p className="text-sm font-semibold text-gray-700">After</p>
-                    </div>
-                  </div>
-                  
-                  <div className="grid grid-cols-2 gap-4 mb-6">
-                    <div className="text-center p-3 bg-[var(--color-primary)]/10 rounded-lg">
-                      <p className="text-2xl font-bold text-[var(--color-primary)]">{transformation.weightLoss}</p>
-                      <p className="text-sm text-gray-600">Weight Loss</p>
-                    </div>
-                    <div className="text-center p-3 bg-[var(--color-primary)]/10 rounded-lg">
-                      <p className="text-2xl font-bold text-[var(--color-primary)]">{transformation.duration}</p>
-                      <p className="text-sm text-gray-600">Duration</p>
-                    </div>
-                  </div>
-                  
-                  <div className="mb-4">
-                    <p className="text-sm text-gray-600 mb-1">Program:</p>
-                    <p className="font-semibold text-gray-900">{transformation.program}</p>
-                  </div>
-                  
-                  <blockquote className="text-gray-700 italic border-l-4 border-[var(--color-primary)] pl-4">
-                    "{transformation.testimonial}"
-                  </blockquote>
+              <div 
+                key={index} 
+                className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8 hover:bg-white/10 transition-all duration-300 hover:shadow-2xl hover:shadow-[var(--color-primary)]/20 animate-fade-in-up"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-2xl font-bold text-white">{transformation.name}</h3>
+                  <span className="text-sm text-gray-400 bg-white/5 px-3 py-1 rounded-full">Age {transformation.age}</span>
                 </div>
+                
+                <div className="grid grid-cols-2 gap-4 mb-6">
+                  <div className="text-center">
+                    <div className="h-48 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl flex items-center justify-center mb-2 border-2 border-white/10">
+                      <div className="text-center">
+                        <svg className="w-12 h-12 text-gray-500 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        <p className="text-gray-500 text-sm">Before</p>
+                      </div>
+                    </div>
+                    <p className="text-sm font-semibold text-gray-400">Before</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="h-48 bg-gradient-to-br from-[var(--color-primary)]/20 to-[var(--color-secondary)]/20 rounded-xl flex items-center justify-center mb-2 border-2 border-[var(--color-primary)]/30">
+                      <div className="text-center">
+                        <svg className="w-12 h-12 text-[var(--color-primary)] mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        <p className="text-[var(--color-primary)] text-sm">After</p>
+                      </div>
+                    </div>
+                    <p className="text-sm font-semibold text-gray-400">After</p>
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-2 gap-4 mb-6">
+                  <div className="text-center p-4 bg-gradient-to-br from-[var(--color-primary)]/20 to-[var(--color-secondary)]/20 rounded-xl border border-[var(--color-primary)]/30">
+                    <p className="text-3xl font-bold text-[var(--color-primary)]">{transformation.weightLoss}</p>
+                    <p className="text-sm text-gray-300">Weight Loss</p>
+                  </div>
+                  <div className="text-center p-4 bg-gradient-to-br from-[var(--color-primary)]/20 to-[var(--color-secondary)]/20 rounded-xl border border-[var(--color-primary)]/30">
+                    <p className="text-3xl font-bold text-[var(--color-primary)]">{transformation.duration}</p>
+                    <p className="text-sm text-gray-300">Duration</p>
+                  </div>
+                </div>
+                
+                <div className="mb-4">
+                  <p className="text-sm text-gray-400 mb-1">Program:</p>
+                  <p className="font-semibold text-white">{transformation.program}</p>
+                </div>
+                
+                <blockquote className="text-gray-300 italic border-l-4 border-[var(--color-primary)] pl-4 py-2">
+                  "{transformation.testimonial}"
+                </blockquote>
               </div>
             ))}
           </div>
@@ -164,14 +217,45 @@ export default function Transformations() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            What Our Clients Say
-          </h2>
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Background with gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-card)] via-[var(--color-darker)] to-[var(--color-card)]"></div>
+        
+        {/* Decorative Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div
+            className="absolute top-0 left-0 w-full h-full"
+            style={{
+              backgroundImage: `radial-gradient(circle at 30px 30px, var(--color-primary) 2px, transparent 2px)`,
+              backgroundSize: "60px 60px",
+            }}
+          ></div>
+        </div>
+
+        {/* Corner Accents */}
+        <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[var(--color-primary)]/30 to-transparent rounded-bl-full blur-2xl"></div>
+        <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-[var(--color-primary)]/30 to-transparent rounded-tr-full blur-2xl"></div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4 relative inline-block">
+              What Our Clients Say
+              {/* Underline decoration */}
+              <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-40 h-1 bg-gradient-to-r from-transparent via-[var(--color-primary)] to-transparent"></span>
+            </h2>
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto mt-6">
+              Hear from our community of satisfied members
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
+              <div 
+                key={index} 
+                className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 hover:bg-white/10 transition-all duration-300 hover:shadow-2xl hover:shadow-[var(--color-primary)]/20 animate-fade-in-up"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
                 <div className="flex items-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <svg key={i} className="w-5 h-5 text-[var(--color-primary)]" fill="currentColor" viewBox="0 0 20 20">
@@ -179,11 +263,11 @@ export default function Transformations() {
                     </svg>
                   ))}
                 </div>
-                <blockquote className="text-gray-700 mb-4">
+                <blockquote className="text-gray-300 mb-4 leading-relaxed">
                   "{testimonial.text}"
                 </blockquote>
-                <div className="border-t pt-4">
-                  <p className="font-semibold text-gray-900">{testimonial.name}</p>
+                <div className="border-t border-white/10 pt-4">
+                  <p className="font-semibold text-white">{testimonial.name}</p>
                   <p className="text-sm text-[var(--color-primary)]">{testimonial.program}</p>
                 </div>
               </div>
@@ -193,26 +277,46 @@ export default function Transformations() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[var(--color-primary)]">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center text-white mb-12">
-            Our Success by the Numbers
-          </h2>
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)]/20 via-[var(--color-primary)] to-[var(--color-secondary)]"></div>
+        
+        {/* Decorative Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div
+            className="absolute top-0 left-0 w-full h-full"
+            style={{
+              backgroundImage: `radial-gradient(circle at 30px 30px, white 2px, transparent 2px)`,
+              backgroundSize: "60px 60px",
+            }}
+          ></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4 relative inline-block">
+              Our Success by the Numbers
+              {/* Underline decoration */}
+              <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-64 h-1 bg-gradient-to-r from-transparent via-white to-transparent"></span>
+            </h2>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <p className="text-4xl font-bold text-white mb-2">500+</p>
+            <div className="text-center p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300">
+              <p className="text-5xl font-bold text-white mb-2">500+</p>
               <p className="text-white/90">Happy Clients</p>
             </div>
-            <div className="text-center">
-              <p className="text-4xl font-bold text-white mb-2">1000+</p>
+            <div className="text-center p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300">
+              <p className="text-5xl font-bold text-white mb-2">1000+</p>
               <p className="text-white/90">Pounds Lost</p>
             </div>
-            <div className="text-center">
-              <p className="text-4xl font-bold text-white mb-2">95%</p>
+            <div className="text-center p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300">
+              <p className="text-5xl font-bold text-white mb-2">95%</p>
               <p className="text-white/90">Success Rate</p>
             </div>
-            <div className="text-center">
-              <p className="text-4xl font-bold text-white mb-2">5</p>
+            <div className="text-center p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300">
+              <p className="text-5xl font-bold text-white mb-2">5</p>
               <p className="text-white/90">Years Experience</p>
             </div>
           </div>
@@ -220,20 +324,36 @@ export default function Transformations() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Background with gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-darker)] via-[var(--color-card)] to-[var(--color-darker)]"></div>
+        
+        {/* Decorative Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div
+            className="absolute top-0 left-0 w-full h-full"
+            style={{
+              backgroundImage: `radial-gradient(circle at 30px 30px, var(--color-primary) 2px, transparent 2px)`,
+              backgroundSize: "60px 60px",
+            }}
+          ></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
             Ready to Start Your Transformation?
           </h2>
-          <p className="text-xl text-gray-600 mb-8">
-            Join hundreds of people who have already transformed their lives with RestartFitness. Your success story could be next!
+          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            Join hundreds of people who have already transformed their lives with RestartFitness. 
+            Your success story could be next!
           </p>
-          <a
+          <Link
             href="/contact"
             className="inline-block px-8 py-4 bg-[var(--color-primary)] text-white font-semibold rounded-lg shadow-lg hover:opacity-95 transition-all duration-300 transform hover:scale-105"
           >
             Start Your Journey Today
-          </a>
+          </Link>
         </div>
       </section>
     </div>

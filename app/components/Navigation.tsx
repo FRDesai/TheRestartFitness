@@ -25,10 +25,27 @@ export default function Navigation() {
     function onKey(e: KeyboardEvent) {
       if (e.key === 'Escape') setIsMenuOpen(false);
     }
+    
+    function onResize() {
+      // Close menu if screen size changes to desktop
+      if (window.innerWidth >= 768) {
+        setIsMenuOpen(false);
+      }
+    }
+    
     document.addEventListener('keydown', onKey);
-    document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+    window.addEventListener('resize', onResize);
+    
+    // Only prevent body scroll on mobile when menu is open
+    if (isMenuOpen && window.innerWidth < 768) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    
     return () => {
       document.removeEventListener('keydown', onKey);
+      window.removeEventListener('resize', onResize);
       document.body.style.overflow = '';
     };
   }, [isMenuOpen]);
@@ -96,7 +113,12 @@ export default function Navigation() {
           <div className="md:hidden flex items-center">
             <button
               aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-              onClick={() => setIsMenuOpen((s) => !s)}
+              onClick={() => {
+                // Only toggle menu on mobile screens
+                if (window.innerWidth < 768) {
+                  setIsMenuOpen((s) => !s);
+                }
+              }}
               className="inline-flex items-center justify-center p-2 rounded-md text-[var(--color-neutral-700)] hover:text-[var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
             >
               <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -112,18 +134,18 @@ export default function Navigation() {
       </div>
 
       {/* Mobile Slide-Over */}
-      <div
-        className={`fixed inset-0 z-40 transition-opacity duration-300 ${isMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
-        aria-hidden={!isMenuOpen}
-      >
+      {isMenuOpen && (
+        <div
+          className="md:hidden fixed inset-0 z-40 transition-opacity duration-300 pointer-events-auto"
+          aria-hidden={false}
+        >
         <div
           onClick={() => setIsMenuOpen(false)}
-          className={`absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-300 ${isMenuOpen ? 'opacity-100' : 'opacity-0'}`}
+          className="absolute inset-0 bg-black/40 backdrop-blur-sm opacity-100 transition-opacity duration-300"
         />
 
         <aside
-          className={`absolute right-0 top-0 h-full w-3/4 max-w-xs bg-[var(--color-dark)] shadow-xl transform transition-transform duration-300 flex flex-col` +
-            (isMenuOpen ? ' translate-x-0' : ' translate-x-full')}
+          className="absolute right-0 top-0 h-full w-3/4 max-w-xs bg-[var(--color-dark)] shadow-xl transform transition-transform duration-300 flex flex-col translate-x-0"
           aria-label="Mobile menu"
         >
           <div className="px-4 py-5 flex items-center justify-between border-b border-gray-800">
@@ -181,6 +203,7 @@ export default function Navigation() {
           </div>
         </aside>
       </div>
+      )}
     </header>
   );
 }

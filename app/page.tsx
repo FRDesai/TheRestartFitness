@@ -188,6 +188,119 @@ export default function Home() {
           </Link>
         </div>
       </section>
+
+      {/* Founders Section */}
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Background with gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-darker)] via-[var(--color-card)] to-[var(--color-darker)]"></div>
+        
+        {/* Decorative Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div
+            className="absolute top-0 left-0 w-full h-full"
+            style={{
+              backgroundImage: `radial-gradient(circle at 30px 30px, var(--color-primary) 2px, transparent 2px)`,
+              backgroundSize: "60px 60px",
+            }}
+          ></div>
+        </div>
+
+        {/* Corner Accents */}
+        <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-[var(--color-primary)]/30 to-transparent rounded-br-full blur-2xl"></div>
+        <div className="absolute bottom-0 right-0 w-40 h-40 bg-gradient-to-tl from-[var(--color-primary)]/30 to-transparent rounded-tl-full blur-2xl"></div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4 relative inline-block">
+              Meet Our Founders
+              {/* Underline decoration */}
+              <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-[var(--color-primary)] to-transparent"></span>
+            </h2>
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto mt-6">
+              The visionaries behind RestartFitness, dedicated to transforming lives through fitness
+            </p>
+          </div>
+
+          {/* Founder 1 - Ansar Kuttiyil */}
+          <div className="mb-16 animate-fade-in-up">
+            <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8 lg:p-12 hover:bg-white/10 transition-all duration-300 hover:shadow-2xl hover:shadow-[var(--color-primary)]/20">
+              {/* Image */}
+              <div className="flex-shrink-0 w-full lg:w-96">
+                <div className="relative aspect-square rounded-xl overflow-hidden shadow-2xl border-4 border-[var(--color-primary)]/30 group">
+                  <Image
+                    src="/images/Founders/Ansar Kuttiyil.jpeg"
+                    alt="Ansar Kuttiyil - Co-Founder"
+                    fill
+                    className="object-cover object-top group-hover:scale-110 transition-transform duration-500"
+                    sizes="(max-width: 1024px) 100vw, 384px"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-primary)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+              </div>
+              
+              {/* Content */}
+              <div className="flex-1 text-center lg:text-left">
+                <div className="inline-block mb-4">
+                  <h3 className="text-3xl font-bold text-white mb-2 relative">
+                    Ansar Kuttiyil
+                    <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)]"></span>
+                  </h3>
+                </div>
+                <p className="text-[var(--color-primary)] font-semibold text-lg mb-4">
+                  Co-Founder & Fitness Expert
+                </p>
+                <p className="text-gray-300 leading-relaxed text-lg">
+                  With a passion for fitness and years of experience in the industry, Ansar brings 
+                  innovative training methodologies and a deep understanding of human physiology to 
+                  RestartFitness. His commitment to helping individuals achieve their fitness goals 
+                  has transformed countless lives, making him a trusted mentor and guide in the 
+                  fitness community.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Founder 2 - Subin Babu */}
+          <div className="animate-fade-in-up delay-200">
+            <div className="flex flex-col lg:flex-row-reverse items-center gap-8 lg:gap-12 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8 lg:p-12 hover:bg-white/10 transition-all duration-300 hover:shadow-2xl hover:shadow-[var(--color-primary)]/20">
+              {/* Image */}
+              <div className="flex-shrink-0 w-full lg:w-96">
+                <div className="relative aspect-square rounded-xl overflow-hidden shadow-2xl border-4 border-[var(--color-primary)]/30 group">
+                  <Image
+                    src="/images/Founders/SubinBabu.JPG"
+                    alt="Subin Babu - Co-Founder"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    sizes="(max-width: 1024px) 100vw, 384px"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-primary)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+              </div>
+              
+              {/* Content */}
+              <div className="flex-1 text-center lg:text-right">
+                <div className="inline-block mb-4">
+                  <h3 className="text-3xl font-bold text-white mb-2 relative">
+                    Subin Babu
+                    <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)]"></span>
+                  </h3>
+                </div>
+                <p className="text-[var(--color-primary)] font-semibold text-lg mb-4">
+                  Co-Founder & Training Specialist
+                </p>
+                <p className="text-gray-300 leading-relaxed text-lg">
+                  Subin is a dedicated fitness professional with a vision to make quality training 
+                  accessible to everyone. His expertise in personalized program design and his 
+                  ability to motivate and inspire clients has been instrumental in building the 
+                  RestartFitness community. Through his leadership, the gym has become a place 
+                  where fitness dreams become reality.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
