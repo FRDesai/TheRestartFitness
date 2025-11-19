@@ -145,10 +145,10 @@ export default function Navigation() {
         />
 
         <aside
-          className="absolute right-0 top-0 h-full w-3/4 max-w-xs bg-[var(--color-dark)] shadow-xl transform transition-transform duration-300 flex flex-col translate-x-0"
+          className="absolute right-0 top-0 h-screen w-3/4 max-w-xs bg-[var(--color-dark)] shadow-xl transform transition-transform duration-300 flex flex-col translate-x-0 z-50"
           aria-label="Mobile menu"
         >
-          <div className="px-4 py-5 flex items-center justify-between border-b border-gray-800">
+          <div className="px-4 py-5 flex items-center justify-between border-b border-gray-800 flex-shrink-0">
             <Link href="/" className="flex items-center gap-3">
               <div className="w-10 h-10 relative">
                 <Image src="/logo/Transparent_logo.png" alt="Restart Fitness" fill className="object-contain" sizes="40px" />
@@ -167,22 +167,22 @@ export default function Navigation() {
             </button>
           </div>
 
-          <nav className="px-4 py-6 flex-1 overflow-auto">
-            <ul className="space-y-4">
+          <nav className="px-4 py-6 flex-1 min-h-0 overflow-y-auto">
+            <ul className="space-y-2">
               {navItems.map((item) => (
                 <li key={item.name} className="relative group">
                   <Link
                     href={item.href}
                     onClick={() => setIsMenuOpen(false)}
-                    className={`block font-medium text-base px-2 py-2 rounded-md transition-all duration-200 ${
+                    className={`block font-medium text-sm sm:text-base px-3 py-3 rounded-md transition-all duration-200 leading-relaxed ${
                       isActive(item.href)
-                        ? 'text-[var(--color-primary)]'
-                        : 'text-[var(--color-neutral-700)] hover:text-[var(--color-primary)]'
+                        ? 'text-[var(--color-primary)] bg-[var(--color-primary)]/10'
+                        : 'text-[var(--color-neutral-700)] hover:text-[var(--color-primary)] hover:bg-white/5'
                     }`}
                   >
                     {item.name}
                   </Link>
-                  <span className={`absolute left-2 bottom-1 h-0.5 bg-[#E0AE1A] transition-transform duration-300 ease-out origin-left w-[calc(100%-1rem)] ${
+                  <span className={`absolute left-3 bottom-2 h-0.5 bg-[#E0AE1A] transition-transform duration-300 ease-out origin-left w-[calc(100%-1.5rem)] ${
                     isActive(item.href)
                       ? 'scale-x-100'
                       : 'scale-x-0 group-hover:scale-x-100'
@@ -192,7 +192,7 @@ export default function Navigation() {
             </ul>
           </nav>
 
-          <div className="px-4 py-4 border-t border-gray-800">
+          <div className="px-4 py-4 border-t border-gray-800 flex-shrink-0">
             <Link
               href="/contact"
               className="block text-center w-full px-4 py-2 rounded-md bg-[var(--color-primary)] text-white font-semibold shadow"

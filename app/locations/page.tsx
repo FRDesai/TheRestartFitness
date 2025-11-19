@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 export default function Locations() {
@@ -17,28 +17,24 @@ export default function Locations() {
         "/images/Alrafa/DSC08893.JPG",
         "/images/Alrafa/DSC08894.JPG",
         "/images/Alrafa/DSC08902.JPG",
-       
       ],
     },
     {
       name: "Al Mankhool Branch",
       address: "1st Floor, Al Jawhara Building (Next to ADCB Bank), Al Mankhool, Dubai",
       phone: "+971 56 891 0323",
-     
       images: [
         "/images/AlMoukhool/DSC08922.JPG",
         "/images/AlMoukhool/DSC08918.JPG",
         "/images/AlMoukhool/DSC08919.JPG",
         "/images/AlMoukhool/DSC08921.JPG",
         "/images/AlMoukhool/DSC08925.JPG",
-      
       ],
     },
     {
       name: "Al Mamzar Branch",
       address: "1st Floor, Al Jaseera Building, Opp. Al Mulla Plaza, Al Mamzar, Dubai",
       phone: "+971 54 250 8119",
-      
       images: [
         "/images/AlMamzar/1.jpg",
         "/images/AlMamzar/2.jpg",
@@ -48,13 +44,10 @@ export default function Locations() {
         "/images/AlMamzar/6.jpg",
       ],
     },
-   
-   
     {
       name: "Al Rolla Branch",
       address: "HC Floor, New Al Madina Supermarket Building, Al Rolla, Dubai",
       phone: "+971 54 245 7211",
-
       images: [
         "/images/AlRolla/1.jpg",
         "/images/AlRolla/2.jpg",
@@ -66,6 +59,9 @@ export default function Locations() {
     },
   ];
 
+  // Refs for scrolling to each location
+  const locationRefs = useRef<(HTMLElement | null)[]>([]);
+
   // Carousel state for each location
   const [currentImageIndex, setCurrentImageIndex] = useState<number[]>(
     locations.map(() => 0)
@@ -75,6 +71,14 @@ export default function Locations() {
   const [isPaused, setIsPaused] = useState<boolean[]>(
     locations.map(() => false)
   );
+
+  // Scroll to location function
+  const scrollToLocation = (index: number) => {
+    locationRefs.current[index]?.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
+  };
 
   const nextImage = (locationIndex: number) => {
     setCurrentImageIndex(prev => 
@@ -108,10 +112,9 @@ export default function Locations() {
             return index;
           })
         );
-      }, 2500); // 3.5 seconds interval
+      }, 2500);
     });
 
-    // Cleanup intervals on component unmount
     return () => {
       intervals.forEach(interval => clearInterval(interval));
     };
@@ -127,60 +130,99 @@ export default function Locations() {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--color-darker)]">
-      {/* Enhanced Hero Banner */}
-      <section className="relative bg-darker py-20 px-4 overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-100">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundSize: '60px 60px'
-          }}></div>
-        </div>
+    <div className="min-h-screen bg-gradient-to-br from-[var(--color-darker)] to-[var(--color-dark)]">
+      {/* Hero Section with All Locations */}
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Background with gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)]/20 via-[var(--color-card)] to-[var(--color-primary)]/10"></div>
         
-        {/* Decorative Elements */}
-        <div className="absolute top-0 left-0 w-full h-full">
-          <div className="absolute top-10 left-10 w-20 h-20 bg-white/5 rounded-full blur-xl"></div>
-          <div className="absolute top-20 right-20 w-32 h-32 bg-white/5 rounded-full blur-xl"></div>
-          <div className="absolute bottom-10 left-1/4 w-16 h-16 bg-white/5 rounded-full blur-xl"></div>
-          <div className="absolute bottom-20 right-1/3 w-24 h-24 bg-white/5 rounded-full blur-xl"></div>
+        {/* Decorative Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div
+            className="absolute top-0 left-0 w-full h-full"
+            style={{
+              backgroundImage: `radial-gradient(circle at 30px 30px, var(--color-primary) 2px, transparent 2px)`,
+              backgroundSize: "60px 60px",
+            }}
+          ></div>
         </div>
 
+        {/* Corner Accents */}
+        <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-[var(--color-primary)]/30 to-transparent rounded-br-full blur-2xl"></div>
+        <div className="absolute bottom-0 right-0 w-40 h-40 bg-gradient-to-tl from-[var(--color-primary)]/30 to-transparent rounded-tl-full blur-2xl"></div>
+
         {/* Content */}
-        <div className="relative max-w-6xl mx-auto text-center z-10">
-         
-          
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-yellow-300">Locations</span>
-          </h1>
-          
-          <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto mb-8 leading-relaxed">
-            Discover our premium fitness centers across Dubai. Each location is strategically placed to serve our community with world-class facilities and expert training.
-          </p>
-          
-          {/* Stats */}
-          <div className="flex flex-wrap justify-center gap-8 mt-12">
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">4</div>
-              <div className="text-white/80 text-sm md:text-base">Premium Locations</div>
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl sm:text-6xl font-bold text-white mb-6 animate-fade-in-up">
+              Our <span className="text-[var(--color-primary)]">Locations</span>
+            </h1>
+            <p className="text-xl text-gray-200 mb-4 max-w-3xl mx-auto animate-fade-in-up delay-200">
+              Discover our premium fitness centers across Dubai. Click on any location to view details and gallery.
+            </p>
+            
+            {/* Stats */}
+            <div className="flex flex-wrap justify-center gap-8 mb-12">
+              <div className="text-center">
+                <div className="text-3xl md:text-4xl font-bold text-white mb-2">4</div>
+                <div className="text-gray-300 text-sm md:text-base">Premium Locations</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl md:text-4xl font-bold text-white mb-2">24/7</div>
+                <div className="text-gray-300 text-sm md:text-base">Access Available</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl md:text-4xl font-bold text-white mb-2">100%</div>
+                <div className="text-gray-300 text-sm md:text-base">Expert Training</div>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">24/7</div>
-              <div className="text-white/80 text-sm md:text-base">Access Available</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">100%</div>
-              <div className="text-white/80 text-sm md:text-base">Expert Training</div>
-            </div>
+          </div>
+
+          {/* All Locations Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {locations.map((location, index) => (
+              <button
+                key={index}
+                onClick={() => scrollToLocation(index)}
+                className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 hover:bg-white/10 transition-all duration-300 hover:shadow-2xl hover:shadow-[var(--color-primary)]/20 hover:scale-105 text-left group animate-fade-in-up"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="relative h-48 mb-4 rounded-lg overflow-hidden">
+                  <Image
+                    src={location.images[0]}
+                    alt={location.name}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[var(--color-primary)] transition-colors">
+                  {location.name}
+                </h3>
+                <p className="text-gray-400 text-sm mb-3 line-clamp-2">{location.address}</p>
+                <div className="flex items-center gap-2 text-[var(--color-primary)] text-sm font-semibold">
+                  <span>View Details</span>
+                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </button>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 4 Horizontal Rows with Carousels */}
-      <main className="py-12 px-4">
+      {/* Detailed Location Sections with Carousels */}
+      <main className="py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto space-y-16">
           {locations.map((location, locationIndex) => (
-            <section key={locationIndex} className="bg-[var(--color-card)] rounded-2xl p-8 shadow-lg">
+            <section 
+              key={locationIndex} 
+              ref={(el) => {
+                locationRefs.current[locationIndex] = el;
+              }}
+              className="relative bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8 shadow-lg hover:shadow-2xl hover:shadow-[var(--color-primary)]/20 transition-all duration-300"
+            >
               {/* Location Header */}
               <div className="text-center mb-8">
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
@@ -195,7 +237,7 @@ export default function Locations() {
                 onMouseEnter={() => pauseRotation(locationIndex)}
                 onMouseLeave={() => resumeRotation(locationIndex)}
               >
-                <div className="relative h-80 md:h-96 rounded-xl overflow-hidden">
+                <div className="relative h-80 md:h-96 rounded-xl overflow-hidden border-2 border-white/10">
                   <Image
                     src={location.images[currentImageIndex[locationIndex]]}
                     alt={`${location.name} - Image ${currentImageIndex[locationIndex] + 1}`}
@@ -206,7 +248,7 @@ export default function Locations() {
                   {/* Navigation Arrows */}
                   <button
                     onClick={() => prevImage(locationIndex)}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all duration-300 hover:scale-110"
+                    className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all duration-300 hover:scale-110 z-10"
                     aria-label="Previous image"
                   >
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -216,7 +258,7 @@ export default function Locations() {
                   
                   <button
                     onClick={() => nextImage(locationIndex)}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all duration-300 hover:scale-110"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all duration-300 hover:scale-110 z-10"
                     aria-label="Next image"
                   >
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -225,7 +267,7 @@ export default function Locations() {
                   </button>
 
                   {/* Image Counter */}
-                  <div className="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm">
+                  <div className="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm backdrop-blur-sm">
                     {currentImageIndex[locationIndex] + 1} / {location.images.length}
                   </div>
                 </div>
@@ -240,10 +282,10 @@ export default function Locations() {
                           i === locationIndex ? imageIndex : index
                         )
                       )}
-                      className={`flex-shrink-0 w-20 h-16 rounded-lg overflow-hidden transition-all duration-300 ${
+                      className={`flex-shrink-0 w-20 h-16 rounded-lg overflow-hidden transition-all duration-300 border-2 ${
                         currentImageIndex[locationIndex] === imageIndex
-                          ? 'ring-2 ring-[var(--color-primary)] scale-105'
-                          : 'ring-2 ring-gray-600 hover:ring-gray-400'
+                          ? 'border-[var(--color-primary)] scale-105'
+                          : 'border-gray-600 hover:border-gray-400'
                       }`}
                     >
                       <Image
@@ -259,38 +301,16 @@ export default function Locations() {
               </div>
 
               {/* Location Details */}
-              <div className="gap-8">
-                {/* Contact Information */}
-                <div className="flex justify-center items-center">
-                  <div className="flex items-center gap-3">
-                    <svg className="w-5 h-5 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
-                    <a href={`tel:${location.phone}`} className="text-gray-300 hover:text-[var(--color-primary)] transition-colors">
-                      {location.phone}
-                    </a>
-                  </div>
+              <div className="flex justify-center items-center">
+                <div className="flex items-center gap-3 bg-white/5 backdrop-blur-sm px-6 py-3 rounded-lg border border-white/10">
+                  <svg className="w-5 h-5 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <a href={`tel:${location.phone}`} className="text-gray-300 hover:text-[var(--color-primary)] transition-colors font-semibold">
+                    {location.phone}
+                  </a>
                 </div>
-
-                {/* Facilities */}
-              
               </div>
-
-              {/* Action Buttons */}
-              {/* <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href={`tel:${location.phone}`}
-                  className="px-8 py-3 bg-[var(--color-primary)] text-white font-semibold rounded-lg hover:bg-[var(--color-primary)]/90 transition-colors text-center"
-                >
-                  📞 Call Now
-                </a>
-                <a
-                  href={`mailto:${location.email}`}
-                  className="px-8 py-3 border-2 border-[var(--color-primary)] text-[var(--color-primary)] font-semibold rounded-lg hover:bg-[var(--color-primary)] hover:text-white transition-colors text-center"
-                >
-                  ✉️ Send Email
-                </a>
-              </div> */}
             </section>
           ))}
         </div>
