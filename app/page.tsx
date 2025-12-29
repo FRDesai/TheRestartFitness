@@ -236,92 +236,77 @@ export default function Home() {
 
         {/* Content */}
         <div className="relative z-10 max-w-6xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4 relative inline-block">
               Meet Our Founders
               {/* Underline decoration */}
               <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-[var(--color-primary)] to-transparent"></span>
             </h2>
-            <p className="text-gray-300 text-lg max-w-2xl mx-auto mt-6">
-              The visionaries behind RestartFitness, dedicated to transforming lives through fitness
-            </p>
           </div>
 
-          {/* Founder 1 - Ansar Kuttiyil */}
-          <div className="mb-16 animate-fade-in-up">
-            <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8 lg:p-12 hover:bg-white/10 transition-all duration-300 hover:shadow-2xl hover:shadow-[var(--color-primary)]/20">
-              {/* Image */}
-              <div className="flex-shrink-0 w-full lg:w-96">
-                <div className="relative aspect-square rounded-xl overflow-hidden shadow-2xl border-4 border-[var(--color-primary)]/30 group">
-                  <Image
-                    src="/images/Founders/Ansar Kuttiyil.jpeg"
-                    alt="Ansar Kuttiyil - Co-Founder"
-                    fill
-                    className="object-cover object-top group-hover:scale-110 transition-transform duration-500"
-                    sizes="(max-width: 1024px) 100vw, 384px"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-primary)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          {/* Founders in One Row */}
+          <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8 lg:p-12 hover:bg-white/10 transition-all duration-300 hover:shadow-2xl hover:shadow-[var(--color-primary)]/20 animate-fade-in-up mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+              {/* Founder 1 - Ansar Kuttiyil */}
+              <div className="text-center">
+                <div className="relative w-full max-w-sm mx-auto mb-6">
+                  <div className="relative aspect-square rounded-xl overflow-hidden shadow-2xl border-4 border-[var(--color-primary)]/30 group">
+                    <Image
+                      src="/images/Founders/Ansar Kuttiyil.jpeg"
+                      alt="Ansar Kuttiyil - Co-Founder"
+                      fill
+                      className="object-cover object-top group-hover:scale-110 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 384px"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-primary)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
                 </div>
-              </div>
-              
-              {/* Content */}
-              <div className="flex-1 text-center lg:text-left">
-                <div className="inline-block mb-4">
-                  <h3 className="text-3xl font-bold text-white mb-2 relative">
+                <div className="mb-2">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 relative inline-block">
                     Ansar Kuttiyil
-                    <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)]"></span>
+                    <span className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)]"></span>
                   </h3>
                 </div>
-                <p className="text-[var(--color-primary)] font-semibold text-lg mb-4">
+                <p className="text-[var(--color-primary)] font-semibold text-base md:text-lg">
                   Co-Founder & Fitness Expert
                 </p>
-                <p className="text-gray-300 leading-relaxed text-lg">
-                  With a passion for fitness and years of experience in the industry, Ansar brings 
-                  innovative training methodologies and a deep understanding of human physiology to 
-                  RestartFitness. His commitment to helping individuals achieve their fitness goals 
-                  has transformed countless lives, making him a trusted mentor and guide in the 
-                  fitness community.
+              </div>
+
+              {/* Founder 2 - Subin Babu */}
+              <div className="text-center">
+                <div className="relative w-full max-w-sm mx-auto mb-6">
+                  <div className="relative aspect-square rounded-xl overflow-hidden shadow-2xl border-4 border-[var(--color-primary)]/30 group">
+                    <Image
+                      src="/images/Founders/SubinBabu.JPG"
+                      alt="Subin Babu - Co-Founder"
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 384px"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-primary)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                </div>
+                <div className="mb-2">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 relative inline-block">
+                    Subin Babu
+                    <span className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)]"></span>
+                  </h3>
+                </div>
+                <p className="text-[var(--color-primary)] font-semibold text-base md:text-lg">
+                  Co-Founder & Training Specialist
                 </p>
               </div>
             </div>
-          </div>
-
-          {/* Founder 2 - Subin Babu */}
-          <div className="animate-fade-in-up delay-200">
-            <div className="flex flex-col lg:flex-row-reverse items-center gap-8 lg:gap-12 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8 lg:p-12 hover:bg-white/10 transition-all duration-300 hover:shadow-2xl hover:shadow-[var(--color-primary)]/20">
-              {/* Image */}
-              <div className="flex-shrink-0 w-full lg:w-96">
-                <div className="relative aspect-square rounded-xl overflow-hidden shadow-2xl border-4 border-[var(--color-primary)]/30 group">
-                  <Image
-                    src="/images/Founders/SubinBabu.JPG"
-                    alt="Subin Babu - Co-Founder"
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    sizes="(max-width: 1024px) 100vw, 384px"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-primary)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
-              </div>
-              
-              {/* Content */}
-              <div className="flex-1 text-center lg:text-right">
-                <div className="inline-block mb-4">
-                  <h3 className="text-3xl font-bold text-white mb-2 relative">
-                    Subin Babu
-                    <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)]"></span>
-                  </h3>
-                </div>
-                <p className="text-[var(--color-primary)] font-semibold text-lg mb-4">
-                  Co-Founder & Training Specialist
-                </p>
-                <p className="text-gray-300 leading-relaxed text-lg">
-                  Subin is a dedicated fitness professional with a vision to make quality training 
-                  accessible to everyone. His expertise in personalized program design and his 
-                  ability to motivate and inspire clients has been instrumental in building the 
-                  RestartFitness community. Through his leadership, the gym has become a place 
-                  where fitness dreams become reality.
-                </p>
-              </div>
+            
+            {/* Common Introduction Paragraph */}
+            <div className="text-center mt-8 pt-8 border-t border-white/10">
+              <p className="text-gray-300 text-lg max-w-3xl mx-auto">
+                The visionaries behind RestartFitness, dedicated to transforming lives through fitness. 
+                With years of combined experience in the fitness industry, our founders bring innovative 
+                training methodologies, personalized program design, and a deep commitment to helping 
+                individuals achieve their fitness goals. Together, they have built RestartFitness into 
+                a trusted community where fitness dreams become reality.
+              </p>
             </div>
           </div>
         </div>

@@ -23,6 +23,7 @@ export default function Locations() {
       name: "Al Mankhool Branch",
       address: "1st Floor, Al Jawhara Building (Next to ADCB Bank), Al Mankhool, Dubai",
       phone: "+971 56 891 0323",
+      is24_7: true,
       images: [
         "/images/AlMoukhool/DSC08922.JPG",
         "/images/AlMoukhool/DSC08918.JPG",
@@ -168,10 +169,6 @@ export default function Locations() {
                 <div className="text-gray-300 text-sm md:text-base">Premium Locations</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-white mb-2">24/7</div>
-                <div className="text-gray-300 text-sm md:text-base">Access Available</div>
-              </div>
-              <div className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-white mb-2">100%</div>
                 <div className="text-gray-300 text-sm md:text-base">Expert Training</div>
               </div>
@@ -195,10 +192,25 @@ export default function Locations() {
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  {location.is24_7 && (
+                    <div className="absolute top-3 right-3 bg-[var(--color-primary)] text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg flex items-center gap-1">
+                      <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
+                      </svg>
+                      24/7
+                    </div>
+                  )}
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[var(--color-primary)] transition-colors">
-                  {location.name}
-                </h3>
+                <div className="flex items-center gap-2 mb-2">
+                  <h3 className="text-xl font-bold text-white group-hover:text-[var(--color-primary)] transition-colors">
+                    {location.name}
+                  </h3>
+                  {location.is24_7 && (
+                    <span className="bg-[var(--color-primary)]/20 text-[var(--color-primary)] px-2 py-0.5 rounded text-xs font-semibold">
+                      24/7
+                    </span>
+                  )}
+                </div>
                 <p className="text-gray-400 text-sm mb-3 line-clamp-2">{location.address}</p>
                 <div className="flex items-center gap-2 text-[var(--color-primary)] text-sm font-semibold">
                   <span>View Details</span>
@@ -225,9 +237,19 @@ export default function Locations() {
             >
               {/* Location Header */}
               <div className="text-center mb-8">
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
-                  {location.name}
-                </h2>
+                <div className="flex items-center justify-center gap-3 mb-2">
+                  <h2 className="text-3xl md:text-4xl font-bold text-white">
+                    {location.name}
+                  </h2>
+                  {location.is24_7 && (
+                    <span className="bg-[var(--color-primary)] text-white px-4 py-1.5 rounded-full text-sm font-bold shadow-lg flex items-center gap-1.5">
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
+                      </svg>
+                      24/7 Available
+                    </span>
+                  )}
+                </div>
                 <p className="text-gray-300 text-lg">{location.address}</p>
               </div>
 
