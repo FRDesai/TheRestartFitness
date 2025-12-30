@@ -21,7 +21,7 @@ export default function Home() {
             className="absolute inset-0 w-full h-full object-cover scale-110 animate-zoom-slow"
             style={{ filter: "brightness(0.4)" }}
           >
-            <source src="https://restartfitness-dev.s3.ap-south-1.amazonaws.com/al+rafa+video.mp4" type="video/mp4" />
+            <source src="/images/Alrafa/alrafavideo.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
