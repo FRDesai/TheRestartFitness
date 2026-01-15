@@ -59,7 +59,7 @@ export default function Navigation() {
             <Link href="/" className="flex items-center gap-3">
               <div className="w-10 h-10 relative">
                 <Image
-                  src="/logo/Transparent_logo.png"
+                  src="/logo/transparent_logo.png"
                   alt="Restart Fitness"
                   fill
                   className="object-contain"
