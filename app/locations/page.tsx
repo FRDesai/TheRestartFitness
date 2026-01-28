@@ -33,6 +33,28 @@ export default function Locations() {
       ],
     },
     {
+      name: "Al Garhoud Branch",
+      address: "XXXX",
+      phone: "XXXX",
+      images: [
+        "/images/Garhoud/DSC09192.JPG.jpeg",
+        "/images/Garhoud/DSC04610.JPG.jpeg",
+        "/images/Garhoud/DSC04612.JPG.jpeg",
+        "/images/Garhoud/DSC04618.JPG.jpeg",
+        "/images/Garhoud/DSC04621.JPG.jpeg",
+        "/images/Garhoud/DSC09190.JPG.jpeg",
+        "/images/Garhoud/DSC09191.JPG.jpeg",
+        "/images/Garhoud/DSC09194.JPG.jpeg",
+        "/images/Garhoud/DSC09200.JPG.jpeg",
+        "/images/Garhoud/DSC09201.JPG.jpeg",
+        "/images/Garhoud/DSC09206.JPG.jpeg",
+        "/images/Garhoud/DSC09211.JPG.jpeg",
+        "/images/Garhoud/DSC09213.JPG.jpeg",
+        "/images/Garhoud/DSC09216.JPG.jpeg",
+        "/images/Garhoud/DSC09222.JPG.jpeg",
+      ],
+    },
+    {
       name: "Al Mamzar Branch",
       address: "1st Floor, Al Jaseera Building, Opp. Al Mulla Plaza, Al Mamzar, Dubai",
       phone: "+971 54 250 8119",
@@ -56,6 +78,24 @@ export default function Locations() {
         "/images/AlRolla/4.jpg",
         "/images/AlRolla/5.jpg",
         "/images/AlRolla/6.jpg",
+      ],
+    },
+    {
+      name: "Oudmehtha Branch",
+      address: "XXXX",
+      phone: "XXXX",
+      images: [
+        // Temporary placeholder image until real images are available
+        "/images/Alrafa/DSC08903.jpg",
+      ],
+    },
+    {
+      name: "Al Gubaiba Branch",
+      address: "XXXX",
+      phone: "XXXX",
+      images: [
+        // Temporary placeholder image until real images are available
+        "/images/Alrafa/DSC08903.jpg",
       ],
     },
   ];
@@ -165,7 +205,7 @@ export default function Locations() {
             {/* Stats */}
             <div className="flex flex-wrap justify-center gap-8 mb-12">
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-white mb-2">4</div>
+                <div className="text-3xl md:text-4xl font-bold text-white mb-2">7</div>
                 <div className="text-gray-300 text-sm md:text-base">Premium Locations</div>
               </div>
               <div className="text-center">
