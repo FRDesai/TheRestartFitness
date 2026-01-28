@@ -34,8 +34,8 @@ export default function Locations() {
     },
     {
       name: "Al Garhoud Branch",
-      address: "XXXX",
-      phone: "XXXX",
+      address: "2nd St - Al Garhoud - Dubai - United Arab Emirates",
+      phone: "+971 54 250 8119",
       images: [
         "/images/Garhoud/DSC09192.JPG.jpeg",
         "/images/Garhoud/DSC04610.JPG.jpeg",
@@ -82,8 +82,8 @@ export default function Locations() {
     },
     {
       name: "Oudmehtha Branch",
-      address: "XXXX",
-      phone: "XXXX",
+      address: "Street 9A - Oud Metha - Dubai - United Arab Emirates",
+      phone: "+971 52 777 6353",
       images: [
         // Temporary placeholder image until real images are available
         "/images/Alrafa/DSC08903.jpg",
