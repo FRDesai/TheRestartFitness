@@ -54,19 +54,19 @@ export default function Locations() {
         "/images/Garhoud/DSC09222.JPG.jpeg",
       ],
     },
-    {
-      name: "Al Mamzar Branch",
-      address: "1st Floor, Al Jaseera Building, Opp. Al Mulla Plaza, Al Mamzar, Dubai",
-      phone: "+971 54 250 8119",
-      images: [
-        "/images/AlMamzar/1.jpg",
-        "/images/AlMamzar/2.jpg",
-        "/images/AlMamzar/3.jpg",
-        "/images/AlMamzar/4.jpg",
-        "/images/AlMamzar/5.jpg",
-        "/images/AlMamzar/6.jpg",
-      ],
-    },
+    // {
+    //   name: "Al Mamzar Branch",
+    //   address: "1st Floor, Al Jaseera Building, Opp. Al Mulla Plaza, Al Mamzar, Dubai",
+    //   phone: "+971 54 250 8119",
+    //   images: [
+    //     "/images/AlMamzar/1.jpg",
+    //     "/images/AlMamzar/2.jpg",
+    //     "/images/AlMamzar/3.jpg",
+    //     "/images/AlMamzar/4.jpg",
+    //     "/images/AlMamzar/5.jpg",
+    //     "/images/AlMamzar/6.jpg",
+    //   ],
+    // },
     {
       name: "Al Rolla Branch",
       address: "HC Floor, New Al Madina Supermarket Building, Al Rolla, Dubai",
@@ -205,7 +205,7 @@ export default function Locations() {
             {/* Stats */}
             <div className="flex flex-wrap justify-center gap-8 mb-12">
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-white mb-2">7</div>
+                <div className="text-3xl md:text-4xl font-bold text-white mb-2">6</div>
                 <div className="text-gray-300 text-sm md:text-base">Premium Locations</div>
               </div>
               <div className="text-center">
