@@ -3,34 +3,24 @@ import Link from "next/link";
 export default function Franchise() {
   const franchiseBenefits = [
     {
-      title: "Proven Business Model",
-      description: "Join a successful fitness brand with a track record of helping franchisees build profitable businesses.",
-      icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+      title: "1Family-Focused Concept",
+      description: "Our gyms are designed to cater to every member of the family, offering a welcoming and motivating environment. From personal training sessions to group programs, we create a space where fitness is for everyone.",
+      icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
     },
     {
-      title: "Comprehensive Training",
-      description: "Receive extensive training on operations, marketing, and customer service to ensure your success.",
-      icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+      title: "Proven Revenue Model",
+      description: "Our business model prioritizes personal training and premium memberships, which not only deliver outstanding results for members but also generate significant recurring revenue for franchise partners.",
+      icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
     },
     {
-      title: "Marketing Support",
-      description: "Benefit from our established brand recognition and comprehensive marketing support to attract customers.",
-      icon: "M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"
+      title: " Premium Service & Expertise",
+      description: "We never compromise on the quality of our services or the expertise of our staff. All trainers and consultants are highly qualified, certified, and trained to deliver results-driven fitness programs, including our signature T99 Transformation Program.",
+      icon: "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
     },
     {
-      title: "Ongoing Support",
-      description: "Get continuous support from our experienced team to help you navigate challenges and grow your business.",
-      icon: "M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 2.25a9.75 9.75 0 100 19.5 9.75 9.75 0 000-19.5z"
-    },
-    {
-      title: "Equipment & Setup",
-      description: "We'll help you source the right equipment and set up your facility to meet our high standards.",
-      icon: "M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
-    },
-    {
-      title: "Territory Protection",
-      description: "Enjoy exclusive territory rights to protect your investment and ensure market exclusivity.",
-      icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+      title: "Strategic Locations",
+      description: "We select franchise locations with a focus on accessibility and high footfall, ensuring your gym reaches the right audience in your city or neighborhood.",
+      icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z"
     }
   ];
 
@@ -105,15 +95,19 @@ export default function Franchise() {
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto text-center">
           <h1 className="text-4xl sm:text-6xl font-bold text-white mb-6 animate-fade-in-up">
-            Own a <span className="text-[var(--color-primary)]">RestartFitness</span> Franchise
+            Become a <span className="text-[var(--color-primary)]">Restart Fitness</span> Franchise Partner
           </h1>
-          <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto animate-fade-in-up delay-200">
-            Join the growing fitness industry and become part of the RestartFitness family. Own your own successful fitness business with our proven model and comprehensive support system.
+          <p className="text-xl text-gray-200 mb-4 max-w-3xl mx-auto animate-fade-in-up delay-200">
+            At Restart Fitness, we don&apos;t just build gyms — we build communities. Since 2020, we have grown to 7 branches across Dubai, offering transformational fitness programs that empower individuals and families to achieve real results.
           </p>
+          <p className="text-xl text-gray-200 mb-6 max-w-3xl mx-auto animate-fade-in-up delay-200">
+            We are now looking for franchise partners who share our vision of quality, excellence, and innovation in fitness.
+          </p>
+          <div className="border-t border-white/20 w-24 mx-auto my-8" aria-hidden="true" />
         </div>
       </section>
 
-      {/* Why Franchise With Us */}
+      {/* Why Restart Fitness */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Background with gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-darker)] via-[var(--color-card)] to-[var(--color-darker)]"></div>
@@ -137,16 +131,13 @@ export default function Franchise() {
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4 relative inline-block">
-              Why Franchise With RestartFitness?
+              Why Restart Fitness?
               {/* Underline decoration */}
               <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-64 h-1 bg-gradient-to-r from-transparent via-[var(--color-primary)] to-transparent"></span>
             </h2>
-            <p className="text-gray-300 text-lg max-w-2xl mx-auto mt-6">
-              Discover the advantages of joining our franchise network
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {franchiseBenefits.map((benefit, index) => (
               <div 
                 key={index} 
