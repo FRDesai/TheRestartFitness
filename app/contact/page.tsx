@@ -97,27 +97,39 @@ export default function Contact() {
 
   const locations = [
     {
-      name: "Al Mamzar Branch",
-      address: "Al Mamzar, Dubai",
-      phone: "+971 4 XXX XXXX",
+      name: "Al Raffa Branch",
+      address: "Ground Floor, Al Rumaithy Building, Al Raffa, Dubai",
+      phone: "+971 56 873 9633",
       hours: "Mon-Fri: 6:00 AM - 10:00 PM\nSat-Sun: 7:00 AM - 9:00 PM"
     },
     {
-      name: "Al Moukhool Branch",
-      address: "Al Moukhool, Dubai",
-      phone: "+971 4 XXX XXXX",
-      hours: "Mon-Fri: 6:00 AM - 10:00 PM\nSat-Sun: 7:00 AM - 9:00 PM"
+      name: "Al Mankhool Branch",
+      address: "1st Floor, Al Jawhara Building (Next to ADCB Bank), Al Mankhool, Dubai",
+      phone: "+971 56 891 0323",
+      hours: "24/7"
     },
     {
-      name: "Al Rafa Branch",
-      address: "Al Rafa, Dubai",
-      phone: "+971 4 XXX XXXX",
+      name: "Al Garhoud Branch",
+      address: "2nd St - Al Garhoud - Dubai - United Arab Emirates",
+      phone: "+971 54 250 8119",
       hours: "Mon-Fri: 6:00 AM - 10:00 PM\nSat-Sun: 7:00 AM - 9:00 PM"
     },
     {
       name: "Al Rolla Branch",
-      address: "Al Rolla, Dubai",
-      phone: "+971 4 XXX XXXX",
+      address: "HC Floor, New Al Madina Supermarket Building, Al Rolla, Dubai",
+      phone: "+971 54 245 7211",
+      hours: "Mon-Fri: 6:00 AM - 10:00 PM\nSat-Sun: 7:00 AM - 9:00 PM"
+    },
+    {
+      name: "Oudmehtha Branch",
+      address: "Street 9A - Oud Metha - Dubai - United Arab Emirates",
+      phone: "+971 52 777 6353",
+      hours: "Mon-Fri: 6:00 AM - 10:00 PM\nSat-Sun: 7:00 AM - 9:00 PM"
+    },
+    {
+      name: "Al Gubaiba Branch",
+      address: "Opposite Hotel Hydepark - HC Floor - Near Al Gubaiba Bus Station, Bur Dubai",
+      phone: "+971 54 592 4155",
       hours: "Mon-Fri: 6:00 AM - 10:00 PM\nSat-Sun: 7:00 AM - 9:00 PM"
     }
   ];
@@ -529,11 +541,11 @@ export default function Contact() {
               Find us at one of our convenient locations across Dubai
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="flex flex-wrap justify-center gap-8">
             {locations.map((location, index) => (
               <div
                 key={index}
-                className="group bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-6 hover:bg-white/10 hover:border-[var(--color-primary)]/50 transition-all duration-500 hover:transform hover:scale-105"
+                className="w-full md:w-[calc(50%-16px)] lg:w-72 group bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-6 hover:bg-white/10 hover:border-[var(--color-primary)]/50 transition-all duration-500 hover:transform hover:scale-105"
               >
                 <div className="w-12 h-12 bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-secondary)] rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

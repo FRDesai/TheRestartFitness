@@ -220,13 +220,13 @@ export default function Locations() {
             </div>
           </div>
 
-          {/* All Locations Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* All Locations Grid - flex + justify-center so last row (2 cards) is centered */}
+          <div className="flex flex-wrap justify-center gap-6">
             {locations.map((location, index) => (
               <button
                 key={index}
                 onClick={() => scrollToLocation(index)}
-                className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 hover:bg-white/10 transition-all duration-300 hover:shadow-2xl hover:shadow-[var(--color-primary)]/20 hover:scale-105 text-left group animate-fade-in-up"
+                className="w-full md:w-[calc(50%-12px)] lg:w-72 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 hover:bg-white/10 transition-all duration-300 hover:shadow-2xl hover:shadow-[var(--color-primary)]/20 hover:scale-105 text-left group animate-fade-in-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="relative h-48 mb-4 rounded-lg overflow-hidden">
