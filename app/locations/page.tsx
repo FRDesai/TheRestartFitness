@@ -94,8 +94,13 @@ export default function Locations() {
       address: "XXXX",
       phone: "XXXX",
       images: [
-        // Temporary placeholder image until real images are available
-        "/images/Alrafa/DSC08903.jpg",
+        "/images/AlGubaiba/DSC09599 copy.jpg.jpeg",
+        "/images/AlGubaiba/DSC09607 copy.jpg.jpeg",
+        "/images/AlGubaiba/DSC09611.JPG.jpeg",
+        "/images/AlGubaiba/DSC09619 copy.jpg.jpeg",
+        "/images/AlGubaiba/DSC09626 copy.jpg.jpeg",
+        "/images/AlGubaiba/DSC09633 copy.jpg.jpeg",
+        "/images/AlGubaiba/DSC09646 copy.jpg.jpeg",
       ],
     },
   ];
