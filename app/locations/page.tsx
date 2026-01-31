@@ -85,8 +85,18 @@ export default function Locations() {
       address: "Street 9A - Oud Metha - Dubai - United Arab Emirates",
       phone: "+971 52 777 6353",
       images: [
-        // Temporary placeholder image until real images are available
-        "/images/Alrafa/DSC08903.jpg",
+        "/images/Oudmehtha/Oud1.jpeg",
+        "/images/Oudmehtha/Oud2.jpeg",
+        "/images/Oudmehtha/Oud3.jpeg",
+        "/images/Oudmehtha/Oud4.jpeg",
+        "/images/Oudmehtha/Oud5.jpeg",
+        "/images/Oudmehtha/Oud6.jpeg",
+        "/images/Oudmehtha/Oud7.jpeg",
+        "/images/Oudmehtha/Oud8.jpeg",
+        "/images/Oudmehtha/Oud9.jpeg",
+        "/images/Oudmehtha/Oud10.jpeg",
+        "/images/Oudmehtha/Oud11.jpeg",
+        "/images/Oudmehtha/Oud12.jpeg",
       ],
     },
     {
