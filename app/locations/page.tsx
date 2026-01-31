@@ -91,8 +91,8 @@ export default function Locations() {
     },
     {
       name: "Al Gubaiba Branch",
-      address: "XXXX",
-      phone: "XXXX",
+      address: "Opposite Hotel Hydepark - HC Floor - Near Al Gubaiba Bus Station, Bur Dubai",
+      phone: "+971 54 592 4155",
       images: [
         "/images/AlGubaiba/DSC09599 copy.jpg.jpeg",
         "/images/AlGubaiba/DSC09607 copy.jpg.jpeg",
