@@ -300,12 +300,34 @@ export default function Home() {
             
             {/* Common Introduction Paragraph */}
             <div className="text-center mt-8 pt-8 border-t border-white/10">
+              <p className="text-gray-300 text-lg max-w-3xl mx-auto mb-4">
+                Ansar Kuttiyil & Subin Babu are the driving force behind Restart Fitness, established in 2020. With over 30 years of combined experience in the fitness industry, they are specialists in body transformations, certified fitness consultants, life coaches, and wellness experts.
+              </p>
+              <p className="text-gray-300 text-lg max-w-3xl mx-auto mb-6">
+                Passionate about helping people achieve real results, they designed the signature T99 Transformation Program, a results-driven system that has changed thousands of lives. Under their guidance, Restart Fitness now has 7 branches across Dubai, each dedicated to personalized fitness and transformative results.
+              </p>
+              <p className="text-gray-300 text-lg max-w-3xl mx-auto mb-2">
+                Follow their journey and get inspired:
+              </p>
               <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-                The visionaries behind RestartFitness, dedicated to transforming lives through fitness. 
-                With years of combined experience in the fitness industry, our founders bring innovative 
-                training methodologies, personalized program design, and a deep commitment to helping 
-                individuals achieve their fitness goals. Together, they have built RestartFitness into 
-                a trusted community where fitness dreams become reality.
+                Instagram:{" "}
+                <a
+                  href="https://instagram.com/shred_coach_dubai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[var(--color-primary)] hover:underline font-medium"
+                >
+                  @shred_coach_dubai
+                </a>
+                {" | "}
+                <a
+                  href="https://instagram.com/the_Subinbabu"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[var(--color-primary)] hover:underline font-medium"
+                >
+                  @the_Subinbabu
+                </a>
               </p>
             </div>
           </div>
