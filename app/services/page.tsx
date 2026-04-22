@@ -6,7 +6,7 @@ export default function Services() {
       title: "Personal Training",
       description: "One-on-one training sessions tailored to your specific goals and fitness level.",
       features: ["Customized workout plans", "Nutrition guidance", "Progress tracking", "Flexible scheduling"],
-      price: "From 300 AED/session",
+
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -18,7 +18,7 @@ export default function Services() {
       title: "Group Fitness Classes",
       description: "High-energy group workouts designed to motivate and challenge you.",
       features: ["HIIT Training", "Strength Training", "Cardio Blast", "Yoga & Pilates"],
-      price: "From 90 AED/class",
+
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -30,7 +30,7 @@ export default function Services() {
       title: "Nutrition Coaching",
       description: "Comprehensive nutrition guidance to support your fitness goals.",
       features: ["Meal planning", "Macro tracking", "Supplement advice", "Lifestyle coaching"],
-      price: "From 440 AED/month",
+
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -42,7 +42,7 @@ export default function Services() {
       title: "Online Training",
       description: "Virtual training sessions and programs you can do from anywhere.",
       features: ["Live video sessions", "Recorded workouts", "App-based tracking", "24/7 support"],
-      price: "From 220 AED/month",
+
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -54,7 +54,7 @@ export default function Services() {
       title: "Corporate Wellness",
       description: "Fitness programs designed for businesses to improve employee health.",
       features: ["On-site classes", "Health assessments", "Team challenges", "Wellness workshops"],
-      price: "Custom pricing",
+
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -66,7 +66,7 @@ export default function Services() {
       title: "Youth Programs",
       description: "Age-appropriate fitness programs for children and teenagers.",
       features: ["Fun activities", "Skill development", "Confidence building", "Safe environment"],
-      price: "From 150 AED/month",
+
       icon: (
         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -184,9 +184,6 @@ export default function Services() {
                   </ul>
                   
                   <div className="border-t border-white/10 pt-6 mt-6">
-                    <p className="text-xl font-bold text-[var(--color-primary)] mb-6">
-                      {service.price}
-                    </p>
                     <Link
                       href="/contact"
                       className="block w-full text-center px-6 py-3 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] text-white font-semibold rounded-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-[var(--color-primary)]/30"
