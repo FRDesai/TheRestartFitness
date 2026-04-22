@@ -106,13 +106,13 @@ export default function Contact() {
       name: "Al Mankhool Branch",
       address: "1st Floor, Al Jawhara Building (Next to ADCB Bank), Al Mankhool, Dubai",
       phone: "+971 56 891 0323",
-      hours: "24/7"
+      hours: "Mon-Fri: 6:00 AM - 10:00 PM\nSat-Sun: 7:00 AM - 9:00 PM"
     },
     {
       name: "Al Garhoud Branch",
       address: "2nd St - Al Garhoud - Dubai - United Arab Emirates",
       phone: "+971 54 250 8119",
-      hours: "Mon-Fri: 6:00 AM - 10:00 PM\nSat-Sun: 7:00 AM - 9:00 PM"
+      hours: "24/7"
     },
     {
       name: "Al Rolla Branch",

@@ -23,7 +23,6 @@ export default function Locations() {
       name: "Al Mankhool Branch",
       address: "1st Floor, Al Jawhara Building (Next to ADCB Bank), Al Mankhool, Dubai",
       phone: "+971 56 891 0323",
-      is24_7: true,
       images: [
         "/images/AlMoukhool/DSC08922.JPG",
         "/images/AlMoukhool/DSC08918.JPG",
@@ -36,6 +35,7 @@ export default function Locations() {
       name: "Al Garhoud Branch",
       address: "2nd St - Al Garhoud - Dubai - United Arab Emirates",
       phone: "+971 54 250 8119",
+      is24_7: true,
       images: [
         "/images/Garhoud/DSC09192.JPG.jpeg",
         "/images/Garhoud/DSC04610.JPG.jpeg",
