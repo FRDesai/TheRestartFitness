@@ -131,6 +131,12 @@ export default function Contact() {
       address: "Opposite Hotel Hydepark - HC Floor - Near Al Gubaiba Bus Station, Bur Dubai",
       phone: "+971 54 592 4155",
       hours: "Mon-Fri: 6:00 AM - 10:00 PM\nSat-Sun: 7:00 AM - 9:00 PM"
+    },
+    {
+      name: "Silicon Oasis Branch",
+      address: "No. 2510 SIT Tower, Silicon Oasis, 110, SIT Tower - Nadd Hessa - Dubai Silicon Oasis - Dubai - United Arab Emirates",
+      phone: "+971 55 992 3356",
+      hours: "Mon-Fri: 6:00 AM - 10:00 PM\nSat-Sun: 7:00 AM - 9:00 PM"
     }
   ];
 

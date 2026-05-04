@@ -113,6 +113,14 @@ export default function Locations() {
         "/images/AlGubaiba/DSC09646 copy.jpg.jpeg",
       ],
     },
+    {
+      name: "Silicon Oasis Branch",
+      address: "No. 2510 SIT Tower, Silicon Oasis, 110, SIT Tower - Nadd Hessa - Dubai Silicon Oasis - Dubai - United Arab Emirates",
+      phone: "+971 55 992 3356",
+      images: [
+        "/images/SiliconOasis/Oasis.jpeg",
+      ],
+    },
   ];
 
   // Refs for scrolling to each location
@@ -220,7 +228,7 @@ export default function Locations() {
             {/* Stats */}
             <div className="flex flex-wrap justify-center gap-8 mb-12">
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-white mb-2">6</div>
+                <div className="text-3xl md:text-4xl font-bold text-white mb-2">7</div>
                 <div className="text-gray-300 text-sm md:text-base">Premium Locations</div>
               </div>
               <div className="text-center">
