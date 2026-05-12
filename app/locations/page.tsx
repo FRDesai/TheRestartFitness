@@ -82,7 +82,7 @@ const LOCATIONS: Location[] = [
     address: "HC Floor, New Al Madina Supermarket Building, Al Rolla, Dubai",
     phone: "+971 54 245 7211",
     hours: "Mon–Fri: 6:00 AM – 10:00 PM · Sat–Sun: 7:00 AM – 9:00 PM",
-    images: [],
+    images: ["/images/AlRolla/AlRolla1.jpeg", "/images/AlRolla/AllRolla2.jpeg"],
   },
   {
     name: "Oudmehtha Branch",
