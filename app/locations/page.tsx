@@ -1,6 +1,28 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, ComponentProps } from "react";
 import Image from "next/image";
+
+// Fades each image in when it finishes loading. No visible placeholder —
+// while loading, the surrounding card bg shows through (so there's no
+// extra "rectangle" appearing). Once the carousel has loaded its first
+// image, subsequent src swaps don't re-trigger the fade, so the previous
+// image holds until the next paints (standard carousel behaviour).
+function ImageWithSkeleton(props: ComponentProps<typeof Image>) {
+  const [loaded, setLoaded] = useState(false);
+
+  return (
+    <Image
+      {...props}
+      className={`${props.className ?? ""} transition-opacity duration-500 ${
+        loaded ? "opacity-100" : "opacity-0"
+      }`}
+      onLoad={(e) => {
+        setLoaded(true);
+        props.onLoad?.(e);
+      }}
+    />
+  );
+}
 
 export default function Locations() {
   const locations = [
@@ -115,7 +137,7 @@ export default function Locations() {
     },
     {
       name: "Silicon Oasis Branch",
-      address: "No. 2510 SIT Tower, Silicon Oasis, 110, SIT Tower - Nadd Hessa - Dubai Silicon Oasis - Dubai - United Arab Emirates",
+      address: "SIT Tower, Silicon Oasis, 110, first floor SIT Tower - Nadd Hessa - Dubai Silicon Oasis - Dubai - United Arab Emirates",
       phone: "+971 55 992 3356",
       images: [
         "/images/SiliconOasis/Oasis.jpeg",
@@ -131,10 +153,9 @@ export default function Locations() {
     locations.map(() => 0)
   );
 
-  // Auto-rotation state
-  const [isPaused, setIsPaused] = useState<boolean[]>(
-    locations.map(() => false)
-  );
+  // Auto-rotation pause state — kept in a ref so hover doesn't re-run the
+  // interval-setup effect and tear down all 7 timers.
+  const isPausedRef = useRef<boolean[]>(locations.map(() => false));
 
   // Scroll to location function
   const scrollToLocation = (index: number) => {
@@ -164,33 +185,54 @@ export default function Locations() {
     );
   };
 
-  // Auto-rotation effect
+  // Track which sections are on-screen so off-screen carousels don't tick.
+  const isVisibleRef = useRef<boolean[]>(locations.map(() => false));
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          const idx = Number((entry.target as HTMLElement).dataset.locationIndex);
+          if (!Number.isNaN(idx)) isVisibleRef.current[idx] = entry.isIntersecting;
+        });
+      },
+      { rootMargin: "200px" }
+    );
+    locationRefs.current.forEach(el => el && observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  // Auto-rotation effect — runs once; reads pause/visibility from refs so
+  // hover and scroll never re-run this effect.
   useEffect(() => {
     const intervals = locations.map((_, locationIndex) => {
+      if (locations[locationIndex].images.length <= 1) return null;
       return setInterval(() => {
-        setCurrentImageIndex(prev => 
-          prev.map((index, i) => {
-            if (i === locationIndex && !isPaused[locationIndex]) {
-              return (index + 1) % locations[locationIndex].images.length;
-            }
-            return index;
-          })
+        if (isPausedRef.current[locationIndex]) return;
+        if (!isVisibleRef.current[locationIndex]) return;
+        setCurrentImageIndex(prev =>
+          prev.map((index, i) =>
+            i === locationIndex
+              ? (index + 1) % locations[locationIndex].images.length
+              : index
+          )
         );
       }, 2500);
     });
 
     return () => {
-      intervals.forEach(interval => clearInterval(interval));
+      intervals.forEach(interval => interval && clearInterval(interval));
     };
-  }, [isPaused]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Pause/resume functions
   const pauseRotation = (locationIndex: number) => {
-    setIsPaused(prev => prev.map((paused, i) => i === locationIndex ? true : paused));
+    isPausedRef.current[locationIndex] = true;
   };
 
   const resumeRotation = (locationIndex: number) => {
-    setIsPaused(prev => prev.map((paused, i) => i === locationIndex ? false : paused));
+    isPausedRef.current[locationIndex] = false;
   };
 
   return (
@@ -244,15 +286,16 @@ export default function Locations() {
               <button
                 key={index}
                 onClick={() => scrollToLocation(index)}
-                className="w-full md:w-[calc(50%-12px)] lg:w-72 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 hover:bg-white/10 transition-all duration-300 hover:shadow-2xl hover:shadow-[var(--color-primary)]/20 hover:scale-105 text-left group animate-fade-in-up"
+                className="w-full md:w-[calc(50%-12px)] lg:w-72 bg-white/5 rounded-xl border border-white/10 p-6 hover:bg-white/10 transition-colors duration-300 hover:shadow-2xl hover:shadow-[var(--color-primary)]/20 text-left group animate-fade-in-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="relative h-48 mb-4 rounded-lg overflow-hidden">
-                  <Image
+                  <ImageWithSkeleton
                     src={location.images[0]}
                     alt={location.name}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 288px"
+                    className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   {location.is24_7 && (
@@ -291,12 +334,13 @@ export default function Locations() {
       <main className="py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto space-y-16">
           {locations.map((location, locationIndex) => (
-            <section 
-              key={locationIndex} 
+            <section
+              key={locationIndex}
               ref={(el) => {
                 locationRefs.current[locationIndex] = el;
               }}
-              className="relative bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8 shadow-lg hover:shadow-2xl hover:shadow-[var(--color-primary)]/20 transition-all duration-300"
+              data-location-index={locationIndex}
+              className="relative bg-white/5 rounded-2xl border border-white/10 p-8 shadow-lg"
             >
               {/* Location Header */}
               <div className="text-center mb-8">
@@ -322,12 +366,15 @@ export default function Locations() {
                 onMouseEnter={() => pauseRotation(locationIndex)}
                 onMouseLeave={() => resumeRotation(locationIndex)}
               >
-                <div className="relative h-80 md:h-96 rounded-xl overflow-hidden border-2 border-white/10">
-                  <Image
+                <div className="relative h-80 md:h-96 rounded-xl overflow-hidden">
+                  <ImageWithSkeleton
                     src={location.images[currentImageIndex[locationIndex]]}
                     alt={`${location.name} - Image ${currentImageIndex[locationIndex] + 1}`}
                     fill
-                    className="object-cover transition-opacity duration-300"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 80vw, 1200px"
+                    className="object-cover"
+                    priority={locationIndex < 2}
+                    loading={locationIndex < 2 ? undefined : "lazy"}
                   />
                   
                   {/* Navigation Arrows */}
@@ -352,7 +399,7 @@ export default function Locations() {
                   </button>
 
                   {/* Image Counter */}
-                  <div className="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm backdrop-blur-sm">
+                  <div className="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm">
                     {currentImageIndex[locationIndex] + 1} / {location.images.length}
                   </div>
                 </div>
@@ -367,13 +414,13 @@ export default function Locations() {
                           i === locationIndex ? imageIndex : index
                         )
                       )}
-                      className={`flex-shrink-0 w-20 h-16 rounded-lg overflow-hidden transition-all duration-300 border-2 ${
+                      className={`relative flex-shrink-0 w-20 h-16 rounded-lg overflow-hidden transition-all duration-300 border-2 ${
                         currentImageIndex[locationIndex] === imageIndex
                           ? 'border-[var(--color-primary)] scale-105'
                           : 'border-gray-600 hover:border-gray-400'
                       }`}
                     >
-                      <Image
+                      <ImageWithSkeleton
                         src={image}
                         alt={`${location.name} thumbnail ${imageIndex + 1}`}
                         width={80}
@@ -387,7 +434,7 @@ export default function Locations() {
 
               {/* Location Details */}
               <div className="flex justify-center items-center">
-                <div className="flex items-center gap-3 bg-white/5 backdrop-blur-sm px-6 py-3 rounded-lg border border-white/10">
+                <div className="flex items-center gap-3 bg-white/5 px-6 py-3 rounded-lg border border-white/10">
                   <svg className="w-5 h-5 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
